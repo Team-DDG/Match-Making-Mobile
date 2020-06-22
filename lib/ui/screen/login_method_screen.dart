@@ -27,6 +27,9 @@ class LoginMethodScreen extends StatelessWidget {
             Expanded(child: Container()),
             CommonButton(
               text: '이메일로 로그인',
+              onPressed: () {
+                Navigator.pushNamed(context, '/emailLogin');
+              },
             ),
             SizedBox(height: 24),
             CommonButton(

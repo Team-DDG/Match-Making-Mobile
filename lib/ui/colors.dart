@@ -9,5 +9,6 @@ const colorSocialFacebook = Color(0xFF0D47A1);
 const colorSocialApple = Color(0xFF424242);
 
 const colorGray = {
+  600: Color(0xFF757575),
   900: Color(0xFF212121),
 };
