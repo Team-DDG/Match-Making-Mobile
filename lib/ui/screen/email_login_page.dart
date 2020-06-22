@@ -4,7 +4,7 @@ import 'package:match_making/ui/common/common_app_bar.dart';
 import 'package:match_making/ui/common/common_button.dart';
 import 'package:match_making/ui/common/common_text_field.dart';
 
-class EmailLoginScreen extends StatelessWidget {
+class EmailLoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/common/common_button.dart';
 
-class LoginMethodScreen extends StatelessWidget {
+class LoginMethodPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

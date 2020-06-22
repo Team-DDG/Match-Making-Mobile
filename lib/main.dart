@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:match_making/ui/colors.dart';
-import 'package:match_making/ui/screen/email_login_screen.dart';
-import 'package:match_making/ui/screen/login_method_screen.dart';
+import 'package:match_making/ui/screen/email_login_page.dart';
+import 'package:match_making/ui/screen/find_password_page.dart';
+import 'package:match_making/ui/screen/login_method_page.dart';
 
 void main() {
   runApp(MatchMakingApp());
@@ -13,8 +14,9 @@ class MatchMakingApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/loginMethod',
       routes: {
-        '/loginMethod': (_) => LoginMethodScreen(),
-        '/emailLogin': (_) => EmailLoginScreen(),
+        '/loginMethod': (_) => LoginMethodPage(),
+        '/emailLogin': (_) => EmailLoginPage(),
+        '/findPassword': (_) => FindPasswordPage(),
       },
       theme: ThemeData(
         appBarTheme: AppBarTheme(
