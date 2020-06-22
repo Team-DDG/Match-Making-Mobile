@@ -15,7 +15,7 @@ class MatchMakingApp extends StatelessWidget {
         '/loginMethod': (_) => LoginMethodScreen(),
       },
       theme: ThemeData(
-        scaffoldBackgroundColor: colorBackground
+        scaffoldBackgroundColor: colorBackground,
       ),
     );
   }
