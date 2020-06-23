@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:match_making/ui/colors.dart';
-import 'package:match_making/ui/screen/email_login_page.dart';
-import 'package:match_making/ui/screen/find_password_page.dart';
-import 'package:match_making/ui/screen/login_method_page.dart';
+import 'package:match_making/ui/page/email_login_page.dart';
+import 'package:match_making/ui/page/find_password_page.dart';
+import 'package:match_making/ui/page/login_method_page.dart';
 
 void main() {
   runApp(MatchMakingApp());
