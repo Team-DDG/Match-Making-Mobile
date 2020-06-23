@@ -32,7 +32,9 @@ class EmailLoginPage extends StatelessWidget {
   _buildAccountRow(BuildContext context) => Row(
         children: <Widget>[
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, '/signup');
+            },
             child: Text(
               '계정이 없으신가요?',
               style: TextStyle(

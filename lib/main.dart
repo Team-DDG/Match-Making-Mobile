@@ -3,6 +3,8 @@ import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/page/email_login_page.dart';
 import 'package:match_making/ui/page/find_password_page.dart';
 import 'package:match_making/ui/page/login_method_page.dart';
+import 'package:match_making/ui/page/self_certification_page.dart';
+import 'package:match_making/ui/page/sign_up_page.dart';
 
 void main() {
   runApp(MatchMakingApp());
@@ -17,6 +19,8 @@ class MatchMakingApp extends StatelessWidget {
         '/loginMethod': (_) => LoginMethodPage(),
         '/emailLogin': (_) => EmailLoginPage(),
         '/findPassword': (_) => FindPasswordPage(),
+        '/signup': (_) => SignUpPage(),
+        '/selfCertification': (_) => SelfCertificationPage(),
       },
       theme: ThemeData(
         appBarTheme: AppBarTheme(
