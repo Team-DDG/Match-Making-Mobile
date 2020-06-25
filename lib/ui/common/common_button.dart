@@ -23,7 +23,6 @@ class CommonButton extends FlatButton {
             text,
             style: TextStyle(
               color: Colors.white,
-              fontFamily: 'RIXGOB',
               fontSize: 20,
             ),
           ),

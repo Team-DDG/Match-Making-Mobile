@@ -13,7 +13,6 @@ class CommonAppBar extends AppBar {
   Widget get title => Text(
         text,
         style: TextStyle(
-          fontFamily: 'RIXGOB',
           fontSize: 18,
           color: Colors.white,
         ),

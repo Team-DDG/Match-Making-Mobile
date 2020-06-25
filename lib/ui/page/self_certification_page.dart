@@ -38,7 +38,6 @@ class _SelfCertificationPageState extends State<SelfCertificationPage> {
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
-                      fontFamily: 'RIXGOB',
                     ),
                   ),
                 ),

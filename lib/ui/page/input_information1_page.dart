@@ -73,7 +73,6 @@ class InputWidget extends StatelessWidget {
           title,
           style: TextStyle(
             color: colorWhiteTransparency[80],
-            fontFamily: 'RIXGOB',
             fontSize: 12,
           ),
         ),
@@ -84,7 +83,6 @@ class InputWidget extends StatelessWidget {
               value,
               style: TextStyle(
                 fontSize: 16,
-                fontFamily: 'RIXGOB',
                 color: Colors.white,
               ),
             ),
@@ -96,7 +94,7 @@ class InputWidget extends StatelessWidget {
               child: Text(
                 '수정',
                 style: TextStyle(
-                    fontSize: 16, color: colorLol, fontFamily: 'RIXGOB'),
+                    fontSize: 16, color: colorLol),
               ),
             ),
           ],

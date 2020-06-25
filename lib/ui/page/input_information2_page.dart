@@ -59,12 +59,11 @@ class _InputInformation2PageState extends State<InputInformation2Page> {
             borderSide: BorderSide(color: colorLol),
           ),
           hintText: '소환사 이름',
-          hintStyle: TextStyle(fontFamily: 'RIXGOB', color: colorGray[600]),
+          hintStyle: TextStyle(color: colorGray[600]),
           contentPadding: EdgeInsets.only(left: 12),
         ),
         style: TextStyle(
           color: Colors.white,
-          fontFamily: 'RIXGOB',
           fontSize: 16,
         ),
         suggestions: <User>[
@@ -147,31 +146,24 @@ class UserInfoWidget extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.white,
-                      fontFamily: 'RIXGOB',
                     ),
                   ),
                   SizedBox(width: 12),
                   Text(
                     'Lv. 2',
                     style: TextStyle(
-                        fontSize: 12,
-                        fontFamily: 'RIXGOB',
-                        color: colorWhiteTransparency[70]),
+                        fontSize: 12, color: colorWhiteTransparency[70]),
                   )
                 ],
               ),
               SizedBox(height: 14),
               Text('major: Support',
                   style: TextStyle(
-                      fontSize: 14,
-                      color: colorWhiteTransparency[70],
-                      fontFamily: 'RIXGOB')),
+                      fontSize: 14, color: colorWhiteTransparency[70])),
               SizedBox(height: 4),
               Text('minor: Jungle',
                   style: TextStyle(
-                      fontSize: 14,
-                      color: colorWhiteTransparency[70],
-                      fontFamily: 'RIXGOB')),
+                      fontSize: 14, color: colorWhiteTransparency[70])),
             ],
           ),
         ],
@@ -193,7 +185,6 @@ class RankInfoWidget extends StatelessWidget {
             style: TextStyle(
               color: colorWhiteTransparency[70],
               fontSize: 18,
-              fontFamily: 'RIXGOB',
             ),
           ),
           SizedBox(height: 12),

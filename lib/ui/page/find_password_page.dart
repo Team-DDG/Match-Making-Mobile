@@ -64,7 +64,6 @@ class FindPasswordPage extends StatelessWidget {
                         '확인',
                         style: TextStyle(
                           fontSize: 18,
-                          fontFamily: 'RIXGOB',
                           color: colorLol,
                         ),
                       ),

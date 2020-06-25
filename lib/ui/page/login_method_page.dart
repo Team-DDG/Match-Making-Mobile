@@ -21,7 +21,6 @@ class LoginMethodPage extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 32,
-                fontFamily: 'RIXGOB',
               ),
             ),
             Expanded(child: Container()),
@@ -108,7 +107,6 @@ class SocialLoginButton extends RaisedButton {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
-                  fontFamily: 'RIXGOB',
                   fontSize: 16,
                 ),
               ),
