@@ -54,7 +54,12 @@ class _SelfCertificationPageState extends State<SelfCertificationPage> {
               duration: Duration(milliseconds: 500),
             ),
             Expanded(child: Container()),
-            CommonButton(text: '인증'),
+            CommonButton(
+              text: '인증',
+              onPressed: () { 
+                Navigator.pushReplacementNamed(context, '/inputInformation1');
+               },
+              ),
           ],
         ),
       ),

@@ -12,3 +12,16 @@ const colorGray = {
   600: Color(0xFF757575),
   900: Color(0xFF212121),
 };
+
+const colorWhiteTransparency = {
+  70: Color(0xB3FFFFFF),
+  80: Color(0xCCFFFFFF),
+};
+
+const colorLightBlue = {
+  300: Color(0xFF4FC3F7),
+};
+
+const colorRed = {
+  400: Color(0xFFEF5350),
+};

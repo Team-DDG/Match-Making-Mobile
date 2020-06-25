@@ -6,12 +6,13 @@ class CommonButton extends FlatButton {
 
   final String text;
   final VoidCallback onPressed;
-
+  
   @override
-  EdgeInsetsGeometry get padding =>EdgeInsets.all(0);
+  EdgeInsetsGeometry get padding => EdgeInsets.all(0);
 
   @override
   Widget get child => Container(
+        height: 48,
         padding: EdgeInsets.only(top: 13, bottom: 13),
         decoration: BoxDecoration(
           border: Border.all(color: colorLol),
