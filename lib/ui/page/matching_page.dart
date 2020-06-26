@@ -11,5 +11,4 @@ class MatchingPage extends StatelessWidget {
       ),
     );
   }
-
 }
