@@ -15,14 +15,13 @@ class CommonTextField extends TextField {
           borderSide: BorderSide(color: colorLol),
         ),
         hintText: hint,
-        hintStyle: TextStyle(fontFamily: 'RIXGOB', color: colorGray[600]),
+        hintStyle: TextStyle(color: colorGray[600]),
         contentPadding: EdgeInsets.only(left: 12),
       );
 
   @override
   TextStyle get style => TextStyle(
     color: Colors.white,
-    fontFamily: 'RIXGOB',
     fontSize: 16
   );
 }
