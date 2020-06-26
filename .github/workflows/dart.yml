@@ -9,14 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-      with:
-        java-version: '12.x'
+    - uses: actions/setup-java@v1
+      with: 
+        java-versions: '12.x'
     - uses: subosito/flutter-action@v1
       with:
-        flutter-version: '1.17.4'
+        channel: 'stable'
 
     - name: Install dependencies
       run: flutter pub get
     
     - name: Run test
       run: flutter test
+
+    - name: Build apk
+      run: flutter build apk
