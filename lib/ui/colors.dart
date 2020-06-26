@@ -10,6 +10,7 @@ const colorSocialApple = Color(0xFF424242);
 
 const colorGray = {
   600: Color(0xFF757575),
+  800: Color(0xFF424242),
   900: Color(0xFF212121),
 };
 

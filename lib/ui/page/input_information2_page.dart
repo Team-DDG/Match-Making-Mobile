@@ -21,11 +21,16 @@ class _InputInformation2PageState extends State<InputInformation2Page> {
           text: '정보 등록',
           actionWidgets: <Widget>[
             Center(
-              child: Text(
-                '완료',
-                style: TextStyle(
-                  color: colorLol,
-                  fontSize: 18,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/inputInformation3');
+                },
+                child: Text(
+                  '다음',
+                  style: TextStyle(
+                    color: colorLol,
+                    fontSize: 18,
+                  ),
                 ),
               ),
             ),
