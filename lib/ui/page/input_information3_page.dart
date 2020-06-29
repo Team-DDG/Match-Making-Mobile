@@ -62,9 +62,9 @@ class InputInformation3Page extends StatelessWidget {
             ),
           ),
           selected: false,
-          selectedColor: colorGray[900],
+          selectedColor: Colors.grey[900],
           onSelected: (selected) {},
-          backgroundColor: colorGray[800],
+          backgroundColor: Colors.grey[800],
         ),
       );
 }

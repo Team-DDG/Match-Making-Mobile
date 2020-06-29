@@ -50,7 +50,7 @@ class LoginMethodPage extends StatelessWidget {
               padding:
                   EdgeInsets.only(left: 48, right: 48, bottom: 24, top: 14),
               decoration: BoxDecoration(
-                color: colorGray[900],
+                color: Colors.grey[900],
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20),
