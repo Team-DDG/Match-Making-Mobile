@@ -58,13 +58,13 @@ class _InputInformation2PageState extends State<InputInformation2Page> {
         key: key,
         decoration: InputDecoration(
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: colorGray[600]),
+            borderSide: BorderSide(color: Colors.grey[600]),
           ),
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: colorLol),
           ),
           hintText: '소환사 이름',
-          hintStyle: TextStyle(color: colorGray[600]),
+          hintStyle: TextStyle(color: Colors.grey[600]),
           contentPadding: EdgeInsets.only(left: 12),
         ),
         style: TextStyle(
@@ -82,7 +82,7 @@ class _InputInformation2PageState extends State<InputInformation2Page> {
         itemSubmitted: (item) {},
         itemBuilder: (context, item) => Container(
           padding: EdgeInsets.all(12),
-          color: colorGray[900],
+          color: Colors.grey[900],
           child: Row(
             children: <Widget>[
               CircleAvatar(
@@ -218,7 +218,7 @@ class RankInfoWidget extends StatelessWidget {
         padding: EdgeInsets.only(top: 12, left: 32, right: 32, bottom: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: colorGray[900],
+          color: Colors.grey[900],
         ),
         child: Column(
           children: <Widget>[
@@ -290,7 +290,7 @@ class MostInfoWidget extends StatelessWidget {
                               '4.00:1',
                               style: TextStyle(
                                 fontSize: 18,
-                                color: colorLightBlue[300],
+                                color: Colors.lightBlue[300],
                               ),
                             )
                           ],
@@ -312,7 +312,7 @@ class MostInfoWidget extends StatelessWidget {
                                   '100%',
                                   style: TextStyle(
                                     fontSize: 18,
-                                    color: colorRed[400],
+                                    color: Colors.red[400],
                                   ),
                                 ),
                               ],
