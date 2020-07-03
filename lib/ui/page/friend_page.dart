@@ -36,6 +36,7 @@ class FriendPage extends StatelessWidget {
                     //should i add sized box here?
                   ],
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                 )
               ],
             ),
@@ -45,7 +46,7 @@ class FriendPage extends StatelessWidget {
             Expanded(
               child: Center(
                 child: Text(
-                  "이런!\n아직 등록된 친구가 없습니다.\n\n매치 또는 메이킹을 통해\n새로운 친구를 만나러 가봐요!",
+                  '이런!\n아직 등록된 친구가 없습니다.\n\n매치 또는 메이킹을 통해\n새로운 친구를 만나러 가봐요!',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

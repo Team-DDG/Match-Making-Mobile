@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:match_making/ui/colors.dart';
+import 'package:match_making/ui/page/change_password_page.dart';
 import 'package:match_making/ui/page/email_login_page.dart';
 import 'package:match_making/ui/page/find_password_page.dart';
 import 'package:match_making/ui/page/login_method_page.dart';
@@ -23,6 +24,7 @@ class MatchMakingApp extends StatelessWidget {
         '/signup': (_) => SignUpPage(),
         '/selfCertification': (_) => SelfCertificationPage(),
         '/main': (_) => MainPage(),
+        '/changePassword': (_) => ChangePasswordPage()
       },
       theme: ThemeData(
         canvasColor: Colors.black,
@@ -30,6 +32,7 @@ class MatchMakingApp extends StatelessWidget {
           color: Color(0xFF191919),
         ),
         scaffoldBackgroundColor: colorBackground,
+        hintColor: Colors.grey,
       ),
     );
   }
