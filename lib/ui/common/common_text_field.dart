@@ -2,26 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:match_making/ui/colors.dart';
 
 class CommonTextField extends TextField {
-  CommonTextField({this.hint});
+  CommonTextField({this.hint, this.obscureTextEnable = false});
 
   final String hint;
+  final bool obscureTextEnable;
+
+  @override
+  bool get obscureText => obscureTextEnable;
 
   @override
   InputDecoration get decoration => InputDecoration(
         enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey[600]),
+          borderSide: BorderSide(color: Colors.grey),
         ),
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: colorLol),
         ),
         hintText: hint,
-        hintStyle: TextStyle(color: Colors.grey[600]),
+        hintStyle: TextStyle(fontFamily: 'RIXGOB', color: Colors.grey),
         contentPadding: EdgeInsets.only(left: 12),
       );
 
   @override
-  TextStyle get style => TextStyle(
-    color: Colors.white,
-    fontSize: 16
-  );
+  TextStyle get style =>
+      TextStyle(
+          color: Colors.white,
+          fontFamily: 'RIXGOB',
+          fontSize: 16);
 }
