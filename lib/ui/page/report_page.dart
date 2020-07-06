@@ -54,13 +54,13 @@ class ReportPage extends StatelessWidget {
                 child: TextField(
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: colorGray[600])),
+                        borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: colorLol),
                     ),
                     hintText: '내용',
                     hintStyle:
-                        TextStyle(fontFamily: 'RIXGOB', color: colorGray[600]),
+                        TextStyle(fontFamily: 'RIXGOB', color: Colors.grey),
                     contentPadding: EdgeInsets.all(12),
                   ),
                   style: TextStyle(color: Colors.white),

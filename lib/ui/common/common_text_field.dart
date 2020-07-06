@@ -13,13 +13,13 @@ class CommonTextField extends TextField {
   @override
   InputDecoration get decoration => InputDecoration(
         enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: colorGray[600]),
+          borderSide: BorderSide(color: Colors.grey),
         ),
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: colorLol),
         ),
         hintText: hint,
-        hintStyle: TextStyle(fontFamily: 'RIXGOB', color: colorGray[600]),
+        hintStyle: TextStyle(fontFamily: 'RIXGOB', color: Colors.grey),
         contentPadding: EdgeInsets.only(left: 12),
       );
 
