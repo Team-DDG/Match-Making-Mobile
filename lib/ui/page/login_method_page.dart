@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/common/common_button.dart';
 
@@ -66,6 +67,19 @@ class LoginMethodPage extends StatelessWidget {
                     color: colorSocialGoogle,
                     text: 'Google 로그인',
                     iconAsset: 'assets/icons/ic_google_plus.png',
+                    onPress: () async {
+                      final googleSignInAccount = await GoogleSignIn(scopes: [
+                        'email',
+
+                      ]).signIn();
+                      final authentication =
+                          await googleSignInAccount.authentication;
+                      final credential = GoogleAuthProvider.getCredential(
+                          idToken: authentication.idToken,
+                          accessToken: authentication.accessToken);
+                      final authResult = await FirebaseAuth.instance
+                          .signInWithCredential(credential);
+                    },
                   ),
                   SizedBox(height: 20),
                   SocialLoginButton(
