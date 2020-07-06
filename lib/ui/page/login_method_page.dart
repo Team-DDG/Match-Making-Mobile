@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/common/common_button.dart';
 
@@ -70,6 +72,14 @@ class LoginMethodPage extends StatelessWidget {
                     color: colorSocialFacebook,
                     text: 'Facebook 로그인',
                     iconAsset: 'assets/icons/ic_facebook.png',
+                    onPress: () async {
+                      final result = await FacebookLogin()
+                          .logIn(['email', 'public_profile']);
+                      final credential = FacebookAuthProvider.getCredential(
+                          accessToken: result.accessToken.token);
+                      final authResult = await FirebaseAuth.instance
+                          .signInWithCredential(credential);
+                    },
                   ),
                   SizedBox(height: 20),
                   SocialLoginButton(
@@ -84,34 +94,38 @@ class LoginMethodPage extends StatelessWidget {
 }
 
 class SocialLoginButton extends RaisedButton {
-  SocialLoginButton({this.color, this.text, this.iconAsset});
+  SocialLoginButton({this.color, this.text, this.iconAsset, this.onPress});
 
   final Color color;
   final String text;
   final String iconAsset;
+  final VoidCallback onPress;
 
   @override
   EdgeInsetsGeometry get padding => EdgeInsets.all(0);
 
   @override
-  Widget get child => Container(
-        color: color,
-        padding: EdgeInsets.only(left: 14, top: 12, bottom: 12, right: 14),
-        child: Row(
-          children: <Widget>[
-            Image.asset(iconAsset),
-            SizedBox(width: 14),
-            Expanded(
-              child: Text(
-                text,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
+  Widget get child => GestureDetector(
+        onTap: onPress,
+        child: Container(
+          color: color,
+          padding: EdgeInsets.only(left: 14, top: 12, bottom: 12, right: 14),
+          child: Row(
+            children: <Widget>[
+              Image.asset(iconAsset),
+              SizedBox(width: 14),
+              Expanded(
+                child: Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       );
 }

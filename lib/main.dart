@@ -17,7 +17,7 @@ class MatchMakingApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/inputInformation1',
+      initialRoute: '/loginMethod',
       routes: {
         '/loginMethod': (_) => LoginMethodPage(),
         '/emailLogin': (_) => EmailLoginPage(),
