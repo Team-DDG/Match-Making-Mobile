@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:match_making/ui/colors.dart';
 
 class CommonTextField extends TextField {
-  CommonTextField({this.hint});
+  CommonTextField({this.hint, this.obscureTextEnable = false});
 
   final String hint;
+  final bool obscureTextEnable;
+
+  @override
+  bool get obscureText => obscureTextEnable;
 
   @override
   InputDecoration get decoration => InputDecoration(
@@ -20,9 +24,6 @@ class CommonTextField extends TextField {
       );
 
   @override
-  TextStyle get style => TextStyle(
-    color: Colors.white,
-    fontFamily: 'RIXGOB',
-    fontSize: 16
-  );
+  TextStyle get style =>
+      TextStyle(color: Colors.white, fontFamily: 'RIXGOB', fontSize: 16);
 }

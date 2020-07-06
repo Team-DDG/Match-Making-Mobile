@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:match_making/ui/common/common_app_bar.dart';
+import 'package:match_making/ui/common/common_button.dart';
 
 class MatchingPage extends StatelessWidget {
   @override
@@ -24,14 +25,9 @@ class MatchingPage extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            MaterialButton(
-              onPressed: () {},
-              color: Colors.lightBlue,
-              child: Text(
-                'STOP!',
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              ),
+            CommonButton(
+              text: 'STOP!',
+              onPressed: () {  },
             )
           ],
           crossAxisAlignment: CrossAxisAlignment.center,
