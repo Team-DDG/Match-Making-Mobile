@@ -11,10 +11,13 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.3
+  autocomplete_textfield: ^1.7.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  test: 
 
 flutter:
   uses-material-design: true
@@ -22,6 +25,7 @@ flutter:
   assets:
     - assets/logos/
     - assets/icons/
+    - assets/tiers/
 
   fonts:
     - family: RIXGOB

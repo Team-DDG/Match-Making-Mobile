@@ -25,5 +25,8 @@ class CommonTextField extends TextField {
 
   @override
   TextStyle get style =>
-      TextStyle(color: Colors.white, fontFamily: 'RIXGOB', fontSize: 16);
+      TextStyle(
+          color: Colors.white,
+          fontFamily: 'RIXGOB',
+          fontSize: 16);
 }

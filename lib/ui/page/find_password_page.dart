@@ -36,7 +36,7 @@ class FindPasswordPage extends StatelessWidget {
           padding: EdgeInsets.all(24),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
-            color: colorGray[900],
+            color: Colors.grey[900],
           ),
           child: Wrap(children: <Widget>[
             Column(
@@ -64,7 +64,6 @@ class FindPasswordPage extends StatelessWidget {
                         '확인',
                         style: TextStyle(
                           fontSize: 18,
-                          fontFamily: 'RIXGOB',
                           color: colorLol,
                         ),
                       ),
