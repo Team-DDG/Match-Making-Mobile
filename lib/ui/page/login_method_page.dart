@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:flutter_twitter_login/flutter_twitter_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/common/common_button.dart';
@@ -70,7 +71,6 @@ class LoginMethodPage extends StatelessWidget {
                     onPress: () async {
                       final googleSignInAccount = await GoogleSignIn(scopes: [
                         'email',
-
                       ]).signIn();
                       final authentication =
                           await googleSignInAccount.authentication;
@@ -97,9 +97,21 @@ class LoginMethodPage extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   SocialLoginButton(
-                    color: colorSocialApple,
-                    text: 'Apple 로그인',
-                    iconAsset: 'assets/icons/ic_apple.png',
+                    color: colorSocialTweeter,
+                    text: 'Twitter 로그인',
+                    iconAsset: 'assets/icons/ic_twitter.png',
+                    onPress: () async {
+                      var twitterLogin = TwitterLogin(
+                          consumerKey: 'HENTrok6VBNwAX3g54NYLFom2',
+                          consumerSecret:
+                              'GIsVaj9jdqRihvDYv9RDfAm1IBovdWha2HKfUdaKAZs2eYsLPj');
+                      final result = await twitterLogin.authorize();
+                      final credential = TwitterAuthProvider.getCredential(
+                          authToken: result.session.token,
+                          authTokenSecret: result.session.secret);
+                      final authResult = await FirebaseAuth.instance
+                          .signInWithCredential(credential);
+                    },
                   )
                 ],
               ),
