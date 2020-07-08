@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:match_making/ui/colors.dart';
 
 class CommonTextField extends TextField {
-  CommonTextField({this.hint, this.obscureTextEnable = false});
+  CommonTextField({this.hint, this.obscureTextEnable = false, this.textEditingController});
 
   final String hint;
   final bool obscureTextEnable;
+  final TextEditingController textEditingController;
+
+
+  @override
+  TextEditingController get controller => textEditingController;
 
   @override
   bool get obscureText => obscureTextEnable;
