@@ -98,7 +98,7 @@ class LoginMethodPage extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   SocialLoginButton(
-                    color: colorSocialTweeter,
+                    color: colorSocialTwitter,
                     text: 'Twitter 로그인',
                     iconAsset: 'assets/icons/ic_twitter.png',
                     onPress: () async {

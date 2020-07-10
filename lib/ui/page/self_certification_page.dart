@@ -10,14 +10,14 @@ class SelfCertificationPage extends StatefulWidget {
 }
 
 class _SelfCertificationPageState extends State<SelfCertificationPage> {
-  bool _isSended = false;
+  bool _isSent = false;
   String _authCode;
 
-  final authCodeTextFieldController = TextEditingController();
+  final _authCodeController = TextEditingController();
 
   @override
   void dispose() {
-    authCodeTextFieldController.dispose();
+    _authCodeController.dispose();
     super.dispose();
   }
 
@@ -39,7 +39,7 @@ class _SelfCertificationPageState extends State<SelfCertificationPage> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      _isSended = true;
+                      _isSent = true;
                     });
                   },
                   child: Text(
@@ -57,9 +57,9 @@ class _SelfCertificationPageState extends State<SelfCertificationPage> {
               firstChild: Container(),
               secondChild: CommonTextField(
                 hint: '인증 번호',
-                textEditingController: authCodeTextFieldController,
+                textEditingController: _authCodeController,
               ),
-              crossFadeState: _isSended
+              crossFadeState: _isSent
                   ? CrossFadeState.showSecond
                   : CrossFadeState.showFirst,
               duration: Duration(milliseconds: 500),
@@ -68,11 +68,9 @@ class _SelfCertificationPageState extends State<SelfCertificationPage> {
             CommonButton(
               text: '인증',
               onPressed: () {
-                if (_authCode == authCodeTextFieldController.text) {
+                if (_authCode == _authCodeController.text) {
                   Navigator.pushReplacementNamed(context, '/inputInformation1');
-                } else {
-
-                }
+                } else {}
               },
             ),
           ],
