@@ -8,12 +8,11 @@ class CommonTextField extends TextField {
   final bool obscureTextEnable;
   final TextEditingController textEditingController;
 
+  @override
+  bool get obscureText => obscureTextEnable;
 
   @override
   TextEditingController get controller => textEditingController;
-
-  @override
-  bool get obscureText => obscureTextEnable;
 
   @override
   InputDecoration get decoration => InputDecoration(
