@@ -11,6 +11,15 @@ class SelfCertificationPage extends StatefulWidget {
 
 class _SelfCertificationPageState extends State<SelfCertificationPage> {
   bool _isSended = false;
+  String _authCode;
+
+  final authCodeTextFieldController = TextEditingController();
+
+  @override
+  void dispose() {
+    authCodeTextFieldController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +55,10 @@ class _SelfCertificationPageState extends State<SelfCertificationPage> {
             SizedBox(height: 10),
             AnimatedCrossFade(
               firstChild: Container(),
-              secondChild: CommonTextField(hint: '인증 번호'),
+              secondChild: CommonTextField(
+                hint: '인증 번호',
+                textEditingController: authCodeTextFieldController,
+              ),
               crossFadeState: _isSended
                   ? CrossFadeState.showSecond
                   : CrossFadeState.showFirst,
@@ -55,10 +67,14 @@ class _SelfCertificationPageState extends State<SelfCertificationPage> {
             Expanded(child: Container()),
             CommonButton(
               text: '인증',
-              onPressed: () { 
-                Navigator.pushReplacementNamed(context, '/inputInformation1');
-               },
-              ),
+              onPressed: () {
+                if (_authCode == authCodeTextFieldController.text) {
+                  Navigator.pushReplacementNamed(context, '/inputInformation1');
+                } else {
+
+                }
+              },
+            ),
           ],
         ),
       ),

@@ -21,8 +21,10 @@ class SignUpPage extends StatelessWidget {
             Expanded(child: Container()),
             CommonButton(
               text: '회원가입',
-              onPressed: () { Navigator.pushNamed(context, '/selfCertification'); },
-              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/selfCertification');
+              },
+            ),
           ],
         ),
       ),

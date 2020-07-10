@@ -1,4 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:flutter_twitter_login/flutter_twitter_login.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/common/common_button.dart';
 
@@ -64,18 +69,53 @@ class LoginMethodPage extends StatelessWidget {
                     color: colorSocialGoogle,
                     text: 'Google 로그인',
                     iconAsset: 'assets/icons/ic_google_plus.png',
+                    onPress: () async {
+                      final googleSignInAccount = await GoogleSignIn(scopes: [
+                        'email',
+                      ]).signIn();
+                      final authentication =
+                          await googleSignInAccount.authentication;
+                      final credential = GoogleAuthProvider.getCredential(
+                          idToken: authentication.idToken,
+                          accessToken: authentication.accessToken);
+                      final authResult = await FirebaseAuth.instance
+                          .signInWithCredential(credential);
+                    },
                   ),
                   SizedBox(height: 20),
                   SocialLoginButton(
                     color: colorSocialFacebook,
                     text: 'Facebook 로그인',
                     iconAsset: 'assets/icons/ic_facebook.png',
+                    onPress: () async {
+                      final result = await FacebookLogin()
+                          .logIn(['email', 'public_profile']);
+                      final credential = FacebookAuthProvider.getCredential(
+                          accessToken: result.accessToken.token);
+                      final authResult = await FirebaseAuth.instance
+                          .signInWithCredential(credential);
+                    },
                   ),
                   SizedBox(height: 20),
                   SocialLoginButton(
-                    color: colorSocialApple,
-                    text: 'Apple 로그인',
-                    iconAsset: 'assets/icons/ic_apple.png',
+                    color: colorSocialTweeter,
+                    text: 'Twitter 로그인',
+                    iconAsset: 'assets/icons/ic_twitter.png',
+                    onPress: () async {
+                      var remoteConfig = await RemoteConfig.instance;
+                      await remoteConfig.fetch(expiration: Duration(hours: 1));
+                      await remoteConfig.activateFetched();
+                      var twitterLogin = TwitterLogin(
+                          consumerKey:
+                              remoteConfig.getString('TWITTER_CONSUMER_KEY'),
+                          consumerSecret: remoteConfig
+                              .getString('TWITTER_CONSUMER_SECRET'));
+                      var result = await twitterLogin.authorize();
+                      var credential = TwitterAuthProvider.getCredential(
+                          authToken: result.session.token,
+                          authTokenSecret: result.session.secret);
+                      var authResult = await FirebaseAuth.instance.signInWithCredential(credential);
+                    },
                   )
                 ],
               ),
@@ -84,34 +124,38 @@ class LoginMethodPage extends StatelessWidget {
 }
 
 class SocialLoginButton extends RaisedButton {
-  SocialLoginButton({this.color, this.text, this.iconAsset});
+  SocialLoginButton({this.color, this.text, this.iconAsset, this.onPress});
 
   final Color color;
   final String text;
   final String iconAsset;
+  final VoidCallback onPress;
 
   @override
   EdgeInsetsGeometry get padding => EdgeInsets.all(0);
 
   @override
-  Widget get child => Container(
-        color: color,
-        padding: EdgeInsets.only(left: 14, top: 12, bottom: 12, right: 14),
-        child: Row(
-          children: <Widget>[
-            Image.asset(iconAsset),
-            SizedBox(width: 14),
-            Expanded(
-              child: Text(
-                text,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
+  Widget get child => GestureDetector(
+        onTap: onPress,
+        child: Container(
+          color: color,
+          padding: EdgeInsets.only(left: 14, top: 12, bottom: 12, right: 14),
+          child: Row(
+            children: <Widget>[
+              Image.asset(iconAsset),
+              SizedBox(width: 14),
+              Expanded(
+                child: Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       );
 }
