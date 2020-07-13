@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:match_making/ui/common/common_app_bar.dart';
-import 'package:match_making/ui/common/common_ilist_tem.dart';
+import 'package:match_making/ui/component/common_app_bar.dart';
+import 'package:match_making/ui/component/common_ilist_tem.dart';
 
 class MakingPage extends StatelessWidget {
   final List<String> names = <String>[

@@ -1,4 +1,4 @@
-import 'package:match_making/ui/data/pref/pref_storage.dart';
+import 'package:match_making/data/pref/pref_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PrefStorageImpl implements PrefStorage {

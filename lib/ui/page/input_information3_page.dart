@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:match_making/ui/colors.dart';
-import 'package:match_making/ui/common/common_app_bar.dart';
+import 'package:match_making/ui/component/common_app_bar.dart';
 import 'package:match_making/ui/styles.dart';
 
 class InputInformation3Page extends StatelessWidget {

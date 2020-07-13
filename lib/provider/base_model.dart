@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:match_making/enums/view_state.dart';
 
-class BaseViewModel extends ChangeNotifier {
+import 'file:///C:/Users/user/FlutterProjects/match_making/lib/provider/view_state.dart';
+
+class BaseModel extends ChangeNotifier {
   ViewState _state = ViewState.Idle;
   ViewState get state => _state;
 

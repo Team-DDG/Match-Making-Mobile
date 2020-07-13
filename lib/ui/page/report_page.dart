@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:match_making/ui/common/common_app_bar.dart';
-import 'package:match_making/ui/common/common_button.dart';
+import 'package:match_making/ui/component/common_app_bar.dart';
+import 'package:match_making/ui/component/common_button.dart';
 
 import '../colors.dart';
 

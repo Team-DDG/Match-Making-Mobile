@@ -11,7 +11,8 @@ import 'package:match_making/ui/page/login_method_page.dart';
 import 'package:match_making/ui/page/main_page.dart';
 import 'package:match_making/ui/page/report_page.dart';
 import 'package:match_making/ui/page/self_certification_page.dart';
-import 'package:match_making/ui/page/sign_up_page.dart';
+
+import 'file:///C:/Users/user/FlutterProjects/match_making/lib/ui/sign_up/sign_up_page.dart';
 
 void main() {
   runApp(MatchMakingApp());
