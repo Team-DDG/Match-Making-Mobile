@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:flutter_twitter_login/flutter_twitter_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:match_making/locator.dart';
 import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/common/common_button.dart';
+import 'package:match_making/ui/data/pref/pref_storage.dart';
 
 class LoginMethodPage extends StatelessWidget {
+  PrefStorage _pref = locator<PrefStorage>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,6 +84,8 @@ class LoginMethodPage extends StatelessWidget {
                           accessToken: authentication.accessToken);
                       final authResult = await FirebaseAuth.instance
                           .signInWithCredential(credential);
+
+                      setToken();
                     },
                   ),
                   SizedBox(height: 20),
@@ -94,6 +100,11 @@ class LoginMethodPage extends StatelessWidget {
                           accessToken: result.accessToken.token);
                       final authResult = await FirebaseAuth.instance
                           .signInWithCredential(credential);
+                      FirebaseUser mUser =
+                          await FirebaseAuth.instance.currentUser();
+                      var idAndToken = mUser.getIdToken();
+
+                      setToken();
                     },
                   ),
                   SizedBox(height: 20),
@@ -114,13 +125,22 @@ class LoginMethodPage extends StatelessWidget {
                       var credential = TwitterAuthProvider.getCredential(
                           authToken: result.session.token,
                           authTokenSecret: result.session.secret);
-                      var authResult = await FirebaseAuth.instance.signInWithCredential(credential);
+                      var authResult = await FirebaseAuth.instance
+                          .signInWithCredential(credential);
+
+                      setToken();
                     },
                   )
                 ],
               ),
             ),
           ]));
+
+  void setToken() async {
+    FirebaseUser mUser = await FirebaseAuth.instance.currentUser();
+    IdTokenResult res = await mUser.getIdToken(refresh: false);
+    _pref.setAccessToken(res.token);
+  }
 }
 
 class SocialLoginButton extends RaisedButton {
