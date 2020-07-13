@@ -3,6 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:match_making/ui/common/common_app_bar.dart';
 import 'package:match_making/ui/common/common_button.dart';
 import 'package:match_making/ui/common/common_text_field.dart';
+import 'package:match_making/ui/data/sign_up_service.dart';
 import 'package:match_making/ui/styles.dart';
 import 'package:match_making/ui/viewModel/sign_up_view_model.dart';
 import 'package:provider/provider.dart';
