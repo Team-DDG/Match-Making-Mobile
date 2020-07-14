@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/email_login/email_login_page.dart';
+import 'package:match_making/ui/login_method/login_method_page.dart';
 import 'package:match_making/ui/page/change_password_page.dart';
 import 'package:match_making/ui/page/find_password_page.dart';
 import 'package:match_making/ui/page/input_keyword_page.dart';
 import 'package:match_making/ui/page/input_lol_page.dart';
 import 'package:match_making/ui/page/input_profile_page.dart';
 import 'package:match_making/ui/page/leave_page.dart';
-import 'package:match_making/ui/page/login_method_page.dart';
 import 'package:match_making/ui/page/main_page.dart';
 import 'package:match_making/ui/page/report_page.dart';
 import 'package:match_making/ui/page/self_certification_page.dart';

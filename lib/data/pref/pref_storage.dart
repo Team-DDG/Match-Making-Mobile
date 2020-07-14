@@ -1,13 +1,7 @@
 abstract class PrefStorage {
-  void setAccessToken(String accessToken);
+  Future deleteAccessToken();
 
   Future<String> getAccessToken();
 
-  void deleteAccessToken();
-
-  void setRefreshToken(String refreshToken);
-
-  Future<String> getRefreshToken();
-
-  void deleteRefreshToken();
+  Future setAccessToken(String accessToken);
 }

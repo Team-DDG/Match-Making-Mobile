@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:match_making/data/error/exception/conflict_exception.dart';
 import 'package:match_making/data/error/exception/internal_exception.dart';
 import 'package:match_making/data/firebase_auth_service.dart';
+import 'package:match_making/provider/base_model.dart';
 import 'package:validators/validators.dart';
 
-class SignUpModel extends ChangeNotifier {
+class SignUpModel extends BaseModel {
   final FirebaseAuthService _firebaseAuthService;
 
   SignUpModel(this._firebaseAuthService);
