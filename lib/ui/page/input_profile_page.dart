@@ -5,7 +5,7 @@ import 'package:match_making/ui/component/common_button.dart';
 import 'package:match_making/ui/component/common_text_field.dart';
 import 'package:match_making/ui/styles.dart';
 
-class InputInformation1Page extends StatelessWidget {
+class InputProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +47,7 @@ class InputInformation1Page extends StatelessWidget {
             CommonButton(
               text: '다음으로',
               onPressed: () {
-                Navigator.pushNamed(context, '/inputInformation2');
+                Navigator.pushNamed(context, '/input/keyword');
               },
             )
           ],

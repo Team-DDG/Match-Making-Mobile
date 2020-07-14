@@ -47,7 +47,7 @@ class EmailLoginPage extends StatelessWidget {
           Expanded(child: Container()),
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, '/findPassword');
+              Navigator.pushNamed(context, '/password/find');
             },
             child: Text(
               '비밀번호를 잊으셨나요?',

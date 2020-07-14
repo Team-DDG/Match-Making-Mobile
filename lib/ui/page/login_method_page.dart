@@ -36,7 +36,7 @@ class LoginMethodPage extends StatelessWidget {
             CommonButton(
               text: '이메일로 로그인',
               onPressed: () {
-                Navigator.pushNamed(context, '/emailLogin');
+                Navigator.pushNamed(context, '/login/email');
               },
             ),
             SizedBox(height: 24),

@@ -4,7 +4,7 @@ import 'package:match_making/ui/component/common_app_bar.dart';
 import 'package:match_making/ui/component/common_button.dart';
 import 'package:match_making/ui/component/common_text_field.dart';
 
-class LeaveServicePage extends StatelessWidget {
+class LeavePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
