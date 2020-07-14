@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:match_making/ui/colors.dart';
+import 'package:match_making/ui/email_login/email_login_page.dart';
 import 'package:match_making/ui/page/change_password_page.dart';
 import 'package:match_making/ui/page/find_password_page.dart';
 import 'package:match_making/ui/page/input_keyword_page.dart';
@@ -10,9 +11,7 @@ import 'package:match_making/ui/page/login_method_page.dart';
 import 'package:match_making/ui/page/main_page.dart';
 import 'package:match_making/ui/page/report_page.dart';
 import 'package:match_making/ui/page/self_certification_page.dart';
-
-import 'file:///C:/Users/user/FlutterProjects/match_making/lib/ui/email_login/email_login_page.dart';
-import 'file:///C:/Users/user/FlutterProjects/match_making/lib/ui/sign_up/sign_up_page.dart';
+import 'package:match_making/ui/sign_up/sign_up_page.dart';
 
 void main() {
   runApp(MatchMakingApp());
