@@ -14,7 +14,7 @@ class FindPasswordPage extends StatelessWidget {
         padding: padding48,
         child: Column(
           children: <Widget>[
-            CommonTextField(hint: '비밀번호 찾기'),
+            CommonTextField(hintText: '비밀번호 찾기'),
             Expanded(child: Container()),
             CommonButton(
               text: '이메일 전송',

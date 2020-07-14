@@ -14,7 +14,7 @@ class InputInformation1Page extends StatelessWidget {
         padding: padding48,
         child: Column(
           children: <Widget>[
-            CommonTextField(hint: '이름'),
+            CommonTextField(hintText: '이름'),
             SizedBox(height: 24),
             InputWidget(
               title: '생년월일',

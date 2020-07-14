@@ -1,36 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:match_making/ui/colors.dart';
 
-class CommonTextField extends TextField {
-  CommonTextField({this.hint, this.obscureTextEnable = false, this.textEditingController});
+class CommonTextField extends StatelessWidget {
+  final bool obscureText;
+  final TextEditingController controller;
+  final String hintText;
 
-  final String hint;
-  final bool obscureTextEnable;
-  final TextEditingController textEditingController;
-
-  @override
-  bool get obscureText => obscureTextEnable;
-
-  @override
-  TextEditingController get controller => textEditingController;
+  const CommonTextField(
+      {Key key, this.obscureText:false, this.controller, this.hintText})
+      : super(key: key);
 
   @override
-  InputDecoration get decoration => InputDecoration(
+  Widget build(BuildContext context) {
+    return TextField(
+      obscureText: obscureText,
+      controller: controller,
+      decoration: InputDecoration(
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.grey),
         ),
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: colorLol),
         ),
-        hintText: hint,
+        hintText: hintText,
         hintStyle: TextStyle(fontFamily: 'RIXGOB', color: Colors.grey),
         contentPadding: EdgeInsets.only(left: 12),
-      );
-
-  @override
-  TextStyle get style =>
-      TextStyle(
-          color: Colors.white,
-          fontFamily: 'RIXGOB',
-          fontSize: 16);
+      ),
+      style: TextStyle(color: Colors.white, fontFamily: 'RIXGOB', fontSize: 16),
+    );
+  }
 }

@@ -14,9 +14,9 @@ class EmailLoginPage extends StatelessWidget {
         padding: padding48,
         child: Column(
           children: <Widget>[
-            CommonTextField(hint: '이메일'),
+            CommonTextField(hintText: '이메일'),
             SizedBox(height: 10),
-            CommonTextField(hint: '비밀번호'),
+            CommonTextField(hintText: '비밀번호', obscureText: true,),
             SizedBox(height: 10),
             _buildAccountRow(context),
             Expanded(child: Container()),

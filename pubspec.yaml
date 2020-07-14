@@ -47,7 +47,7 @@ flutter:
   fonts:
     - family: RIXGOB
       fonts:
-        - asset: fonts/RIXGOB.TTF
+        - asset: assets/fonts/RIXGOB.TTF
     - family: RIXGOM
       fonts:
-        - asset: fonts/RIXGOM.TTF 
+        - asset: assets/fonts/RIXGOM.TTF

@@ -14,7 +14,7 @@ class LeaveServicePage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             CommonTextField(
-              hint: '비밀번호 확인',
+              hintText: '비밀번호 확인',
             ),
             Expanded(child: Container()),
             CommonButton(

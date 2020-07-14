@@ -32,7 +32,7 @@ class _SelfCertificationPageState extends State<SelfCertificationPage> {
             Row(
               children: <Widget>[
                 Expanded(
-                  child: CommonTextField(hint: '010-XXXX-XXXX'),
+                  child: CommonTextField(hintText: '010-XXXX-XXXX'),
                   flex: 1,
                 ),
                 SizedBox(width: 14),
@@ -56,8 +56,8 @@ class _SelfCertificationPageState extends State<SelfCertificationPage> {
             AnimatedCrossFade(
               firstChild: Container(),
               secondChild: CommonTextField(
-                hint: '인증 번호',
-                textEditingController: _authCodeController,
+                hintText: '인증 번호',
+                controller: _authCodeController,
               ),
               crossFadeState: _isSent
                   ? CrossFadeState.showSecond

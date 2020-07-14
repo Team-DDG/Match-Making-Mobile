@@ -33,20 +33,20 @@ class _SignUpBodyState extends State<SignUpBody> {
         child: Column(
           children: <Widget>[
             CommonTextField(
-              hint: '이메일',
-              textEditingController: _emailController,
+              hintText: '이메일',
+              controller: _emailController,
             ),
             SizedBox(height: 10),
             CommonTextField(
-              hint: '비밀번호',
-              obscureTextEnable: true,
-              textEditingController: _passwordController,
+              hintText: '비밀번호',
+              obscureText: true,
+              controller: _passwordController,
             ),
             SizedBox(height: 10),
             CommonTextField(
-              hint: '비밀번호 확인',
-              obscureTextEnable: true,
-              textEditingController: _reTypeController,
+              hintText: '비밀번호 확인',
+              obscureText: true,
+              controller: _reTypeController,
             ),
             Expanded(child: Container()),
             CommonButton(

@@ -16,16 +16,16 @@ class ChangePasswordPage extends StatelessWidget {
             children: <Widget>[
               SizedBox(height: 24),
               CommonTextField(
-                hint: '기존 비밀번호',
-                obscureTextEnable: true,
+                hintText: '기존 비밀번호',
+                obscureText: true,
               ),
               CommonTextField(
-                hint: '신규 비밀번호',
-                obscureTextEnable: true,
+                hintText: '신규 비밀번호',
+                obscureText: true,
               ),
               CommonTextField(
-                hint: '신규 비밀번호 확인',
-                obscureTextEnable: true,
+                hintText: '신규 비밀번호 확인',
+                obscureText: true,
               ),
               Expanded(
                 child: Container(),
