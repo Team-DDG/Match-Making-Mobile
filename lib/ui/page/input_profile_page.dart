@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:match_making/ui/colors.dart';
-import 'package:match_making/ui/common/common_app_bar.dart';
-import 'package:match_making/ui/common/common_button.dart';
-import 'package:match_making/ui/common/common_text_field.dart';
+import 'package:match_making/ui/component/common_app_bar.dart';
+import 'package:match_making/ui/component/common_button.dart';
+import 'package:match_making/ui/component/common_text_field.dart';
 import 'package:match_making/ui/styles.dart';
 
-class InputInformation1Page extends StatelessWidget {
+class InputProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +14,7 @@ class InputInformation1Page extends StatelessWidget {
         padding: padding48,
         child: Column(
           children: <Widget>[
-            CommonTextField(hint: '이름'),
+            CommonTextField(hintText: '이름'),
             SizedBox(height: 24),
             InputWidget(
               title: '생년월일',
@@ -47,7 +47,7 @@ class InputInformation1Page extends StatelessWidget {
             CommonButton(
               text: '다음으로',
               onPressed: () {
-                Navigator.pushNamed(context, '/inputInformation2');
+                Navigator.pushNamed(context, '/input/keyword');
               },
             )
           ],

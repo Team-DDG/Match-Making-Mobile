@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:flutter_twitter_login/flutter_twitter_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:match_making/locator.dart';
+import 'package:match_making/data/pref/pref_storage.dart';
+import 'package:match_making/data/pref/pref_storage_impl.dart';
 import 'package:match_making/ui/colors.dart';
-import 'package:match_making/ui/common/common_button.dart';
-import 'package:match_making/ui/data/pref/pref_storage.dart';
+import 'package:match_making/ui/component/common_button.dart';
 
 class LoginMethodPage extends StatelessWidget {
-  PrefStorage _pref = locator<PrefStorage>();
+  PrefStorage _pref = PrefStorageImpl();
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class LoginMethodPage extends StatelessWidget {
             CommonButton(
               text: '이메일로 로그인',
               onPressed: () {
-                Navigator.pushNamed(context, '/emailLogin');
+                Navigator.pushNamed(context, '/login/email');
               },
             ),
             SizedBox(height: 24),

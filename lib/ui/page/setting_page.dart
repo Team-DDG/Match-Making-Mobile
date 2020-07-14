@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:match_making/ui/common/common_app_bar.dart';
+import 'package:match_making/ui/component/common_app_bar.dart';
 
 class SettingPage extends StatelessWidget {
   bool isEventSelected = true;

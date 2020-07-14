@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:match_making/ui/common/common_app_bar.dart';
-import 'package:match_making/ui/common/common_button.dart';
-import 'package:match_making/ui/common/common_text_field.dart';
+import 'package:match_making/ui/component/common_app_bar.dart';
+import 'package:match_making/ui/component/common_button.dart';
+import 'package:match_making/ui/component/common_text_field.dart';
 
-class LeaveServicePage extends StatelessWidget {
+class LeavePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +14,7 @@ class LeaveServicePage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             CommonTextField(
-              hint: '비밀번호 확인',
+              hintText: '비밀번호 확인',
             ),
             Expanded(child: Container()),
             CommonButton(

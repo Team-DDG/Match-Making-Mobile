@@ -1,9 +1,9 @@
 import 'dart:core';
 
 import 'package:flutter/material.dart';
-import 'package:match_making/ui/common/common_app_bar.dart';
-import 'package:match_making/ui/common/common_button.dart';
-import 'package:match_making/ui/common/common_text_field.dart';
+import 'package:match_making/ui/component/common_app_bar.dart';
+import 'package:match_making/ui/component/common_button.dart';
+import 'package:match_making/ui/component/common_text_field.dart';
 
 class ChangePasswordPage extends StatelessWidget {
   @override
@@ -14,27 +14,25 @@ class ChangePasswordPage extends StatelessWidget {
           padding: EdgeInsets.only(left: 48, right: 48, bottom: 48),
           child: Column(
             children: <Widget>[
-              SizedBox(
-                height: 24,
+              SizedBox(height: 24),
+              CommonTextField(
+                hintText: '기존 비밀번호',
+                obscureText: true,
               ),
               CommonTextField(
-                hint: '기존 비밀번호',
-                obscureTextEnable: true,
+                hintText: '신규 비밀번호',
+                obscureText: true,
               ),
               CommonTextField(
-                hint: '신규 비밀번호',
-                obscureTextEnable: true,
-              ),
-              CommonTextField(
-                hint: '신규 비밀번호 확인',
-                obscureTextEnable: true,
+                hintText: '신규 비밀번호 확인',
+                obscureText: true,
               ),
               Expanded(
                 child: Container(),
               ),
               CommonButton(
                 text: '비밀번호 변경',
-                onPressed: () {  },
+                onPressed: () {},
               )
             ],
           ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:match_making/ui/colors.dart';
-import 'package:match_making/ui/common/common_app_bar.dart';
-import 'package:match_making/ui/common/common_button.dart';
-import 'package:match_making/ui/common/common_text_field.dart';
+import 'package:match_making/ui/component/common_app_bar.dart';
+import 'package:match_making/ui/component/common_button.dart';
+import 'package:match_making/ui/component/common_text_field.dart';
 import 'package:match_making/ui/styles.dart';
 
 class FindPasswordPage extends StatelessWidget {
@@ -14,7 +14,7 @@ class FindPasswordPage extends StatelessWidget {
         padding: padding48,
         child: Column(
           children: <Widget>[
-            CommonTextField(hint: '비밀번호 찾기'),
+            CommonTextField(hintText: '비밀번호 찾기'),
             Expanded(child: Container()),
             CommonButton(
               text: '이메일 전송',

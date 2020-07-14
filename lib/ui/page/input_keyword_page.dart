@@ -1,17 +1,16 @@
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:match_making/ui/common/common_app_bar.dart';
+import 'package:match_making/ui/colors.dart';
+import 'package:match_making/ui/component/common_app_bar.dart';
 import 'package:match_making/ui/styles.dart';
 
-import '../colors.dart';
-
-class InputInformation2Page extends StatefulWidget {
+class InputKeywordPage extends StatefulWidget {
   @override
-  _InputInformation2PageState createState() => _InputInformation2PageState();
+  _InputKeywordPageState createState() => _InputKeywordPageState();
 }
 
-class _InputInformation2PageState extends State<InputInformation2Page> {
+class _InputKeywordPageState extends State<InputKeywordPage> {
   GlobalKey<AutoCompleteTextFieldState<User>> key = GlobalKey();
 
   @override
@@ -23,7 +22,7 @@ class _InputInformation2PageState extends State<InputInformation2Page> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, '/inputInformation3');
+                  Navigator.pushNamed(context, '/input/lol');
                 },
                 child: Text(
                   '다음',
