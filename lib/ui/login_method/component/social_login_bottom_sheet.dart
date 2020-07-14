@@ -65,6 +65,6 @@ class SocialLoginBottomSheet extends StatelessWidget {
         .read<SocialLoginModel>()
         .socialLogin(socialType)
         .then((value) => Navigator.pushNamed(context, '/main'))
-        .catchError((err) => context.showSnackbar(err.toString()));
+        .catchError((err) => context.showSnackbar(err));
   }
 }
