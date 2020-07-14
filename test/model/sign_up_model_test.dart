@@ -5,7 +5,7 @@ import 'package:match_making/data/firebase_auth_service.dart';
 import 'package:match_making/ui/sign_up/sign_up_model.dart';
 import 'package:mockito/mockito.dart';
 
-class MockFirebaseAuthService extends Mock implements FirebaseAuthService {}
+import '../mock/mock_firebase_auth_serivce.dart';
 
 void main() {
   SignUpModel model;
