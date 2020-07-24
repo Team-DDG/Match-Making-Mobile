@@ -32,8 +32,7 @@ class LoginMethodBody extends StatelessWidget {
               onPressed: () {
                 showModalBottomSheet(
                     backgroundColor: Colors.transparent,
-                    builder: (_) =>
-                        SocialLoginBottomSheet(),
+                    builder: (_) => SocialLoginBottomSheet(),
                     context: context);
               }),
         ],
