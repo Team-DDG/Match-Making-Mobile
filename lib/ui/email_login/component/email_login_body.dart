@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:match_making/data/error/handling_method_type.dart';
 import 'package:match_making/extension/context_ext.dart';
 import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/component/common_button.dart';
@@ -19,44 +20,30 @@ class _EmailLoginBodyState extends State<EmailLoginBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<EmailLoginModel>(
-      builder: (context, model, _) {
-        return Container(
-          padding: padding48,
-          child: Column(
-            children: <Widget>[
-              CommonTextField(
-                hintText: '이메일',
-                controller: emailController,
-              ),
-              SizedBox(height: 10),
-              CommonTextField(
-                hintText: '비밀번호',
-                obscureText: true,
-                controller: passwordController,
-              ),
-              SizedBox(height: 10),
-              _buildAccountRow(context),
-              Expanded(child: Container()),
-              CommonButton(
-                text: '로그인',
-                onPressed: () => _onClickLogin(context, model),
-              ),
-            ],
+    return Container(
+      padding: padding48,
+      child: Column(
+        children: <Widget>[
+          CommonTextField(
+            hintText: '이메일',
+            controller: emailController,
           ),
-        );
-      },
+          SizedBox(height: 10),
+          CommonTextField(
+            hintText: '비밀번호',
+            obscureText: true,
+            controller: passwordController,
+          ),
+          SizedBox(height: 10),
+          _buildAccountRow(context),
+          Expanded(child: Container()),
+          CommonButton(
+            text: '로그인',
+            onPressed: () => _onClickLogin(context),
+          ),
+        ],
+      ),
     );
-  }
-
-  _onClickLogin(BuildContext context, EmailLoginModel model) async {
-    final progressDialog = getProgressDialog(context, '로그인 중...');
-    await progressDialog.show();
-    model
-        .login(emailController.text.trim(), passwordController.text.trim())
-        .then((value) => Navigator.pushNamed(context, '/main'))
-        .catchError((err) => context.showSnackbar(err))
-        .whenComplete(() async => await progressDialog.hide());
   }
 
   _buildAccountRow(BuildContext context) => Row(
@@ -90,4 +77,16 @@ class _EmailLoginBodyState extends State<EmailLoginBody> {
           )
         ],
       );
+
+  _onClickLogin(BuildContext context) async {
+    final progressDialog = getProgressDialog(context, '로그인 중...');
+    await progressDialog.show();
+
+    context
+        .read<EmailLoginModel>()
+        .login(emailController.text.trim(), passwordController.text.trim())
+        .then((value) => Navigator.pushNamed(context, '/main'))
+        .catchError((err) => context.showSnackbar((err as Message).message))
+        .whenComplete(() async => await progressDialog.hide());
+  }
 }

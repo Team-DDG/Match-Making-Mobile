@@ -1,7 +1,8 @@
 import 'package:match_making/data/error/exception/internal_exception.dart';
 import 'package:match_making/data/error/exception/not_found_exception.dart';
 import 'package:match_making/data/error/exception/unauthorized_exception.dart';
-import 'package:match_making/data/firebase_auth_service.dart';
+import 'package:match_making/data/error/handling_method_type.dart';
+import 'package:match_making/data/service/firebase_auth_service.dart';
 import 'package:match_making/provider/base_model.dart';
 
 class EmailLoginModel extends BaseModel {
@@ -13,11 +14,11 @@ class EmailLoginModel extends BaseModel {
     try {
       await _firebaseAuthService.login(email, password);
     } on UnauthorizedException {
-      return Future.error('비밀번호가 일치하지 않습니다');
+      return Future.error(Message('비밀번호가 일치하지 않습니다'));
     } on NotFoundException {
-      return Future.error('등록된 계정이 없습니다');
+      return Future.error(Message('등록된 계정이 없습니다'));
     } on InternalException {
-      return Future.error('서버에 문제가 발생했습니다');
+      return Future.error(Message('서버에 문제가 발생했습니다'));
     }
   }
 }

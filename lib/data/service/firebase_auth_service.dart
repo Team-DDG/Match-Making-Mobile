@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:match_making/data/error/firebase_error_handler.dart';
+import 'package:match_making/data/error/handler/firebase_error_handler.dart';
 
 abstract class FirebaseAuthService {
   Future signUp(String email, String password);
