@@ -2,9 +2,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:match_making/data/error/exception/conflict_exception.dart';
 import 'package:match_making/data/error/exception/internal_exception.dart';
 import 'package:match_making/data/error/handling_method_type.dart';
-import 'package:match_making/data/firebase_auth_service.dart';
 import 'package:match_making/ui/sign_up/sign_up_model.dart';
 import 'package:mockito/mockito.dart';
+
+import 'file:///C:/Users/user/FlutterProjects/match_making/lib/data/service/firebase_auth_service.dart';
 
 import '../mock/mock_firebase_auth_serivce.dart';
 

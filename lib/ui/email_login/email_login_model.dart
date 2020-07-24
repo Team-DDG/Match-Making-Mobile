@@ -2,8 +2,9 @@ import 'package:match_making/data/error/exception/internal_exception.dart';
 import 'package:match_making/data/error/exception/not_found_exception.dart';
 import 'package:match_making/data/error/exception/unauthorized_exception.dart';
 import 'package:match_making/data/error/handling_method_type.dart';
-import 'package:match_making/data/firebase_auth_service.dart';
 import 'package:match_making/provider/base_model.dart';
+
+import 'file:///C:/Users/user/FlutterProjects/match_making/lib/data/service/firebase_auth_service.dart';
 
 class EmailLoginModel extends BaseModel {
   final FirebaseAuthService _firebaseAuthService;
