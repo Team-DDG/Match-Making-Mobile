@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:match_making/data/service/firebase_auth_service.dart';
 import 'package:match_making/ui/component/common_app_bar.dart';
 import 'package:match_making/ui/component/expanded_scroll_view.dart';
 import 'package:match_making/ui/email_login/component/email_login_body.dart';
 import 'package:match_making/ui/email_login/email_login_model.dart';
 import 'package:provider/provider.dart';
-
-import 'file:///C:/Users/user/FlutterProjects/match_making/lib/data/service/firebase_auth_service.dart';
 
 class EmailLoginPage extends StatelessWidget {
   @override

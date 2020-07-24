@@ -1,10 +1,9 @@
 import 'package:match_making/data/error/exception/not_found_exception.dart';
 import 'package:match_making/data/error/handling_method_type.dart';
+import 'package:match_making/data/service/social_login_service.dart';
 import 'package:match_making/data/service/user_service.dart';
 import 'package:match_making/data/social/social_type.dart';
 import 'package:match_making/provider/base_model.dart';
-
-import 'file:///C:/Users/user/FlutterProjects/match_making/lib/data/service/social_login_service.dart';
 
 class SocialLoginModel extends BaseModel {
   final SocialLoginService _socialLoginService;
