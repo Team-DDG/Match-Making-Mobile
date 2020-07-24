@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:match_making/data/error/handling_method_type.dart';
 import 'package:match_making/extension/context_ext.dart';
 import 'package:match_making/ui/component/common_button.dart';
 import 'package:match_making/ui/component/common_text_field.dart';
@@ -27,46 +28,48 @@ class _SignUpBodyState extends State<SignUpBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<SignUpModel>(builder: (context, model, _) {
-      return Padding(
-        padding: padding48,
-        child: Column(
-          children: <Widget>[
-            CommonTextField(
-              hintText: '이메일',
-              controller: _emailController,
-            ),
-            SizedBox(height: 10),
-            CommonTextField(
-              hintText: '비밀번호',
-              obscureText: true,
-              controller: _passwordController,
-            ),
-            SizedBox(height: 10),
-            CommonTextField(
-              hintText: '비밀번호 확인',
-              obscureText: true,
-              controller: _reTypeController,
-            ),
-            Expanded(child: Container()),
-            CommonButton(
-              text: '회원가입',
-              onPressed: () => _onClickSignUp(context, model),
-            ),
-          ],
-        ),
-      );
-    });
+    return Padding(
+      padding: padding48,
+      child: Column(
+        children: <Widget>[
+          CommonTextField(
+            hintText: '이메일',
+            controller: _emailController,
+          ),
+          SizedBox(height: 10),
+          CommonTextField(
+            hintText: '비밀번호',
+            obscureText: true,
+            controller: _passwordController,
+          ),
+          SizedBox(height: 10),
+          CommonTextField(
+            hintText: '비밀번호 확인',
+            obscureText: true,
+            controller: _reTypeController,
+          ),
+          Expanded(child: Container()),
+          CommonButton(
+            text: '회원가입',
+            onPressed: () => _onClickSignUp(context),
+          ),
+        ],
+      ),
+    );
   }
 
-  _onClickSignUp(BuildContext context, SignUpModel model) async {
+  _onClickSignUp(BuildContext context) async {
     final progressDialog = getProgressDialog(context, '회원가입 중...');
     await progressDialog.show();
-    model
-        .signUp(_emailController.text.trim(), _passwordController.text.trim(),
-            _reTypeController.text.trim())
+    context
+        .read<SignUpModel>()
+        .signUp(
+          _emailController.text.trim(),
+          _passwordController.text.trim(),
+          _reTypeController.text.trim(),
+        )
         .then((value) => Navigator.pop(context))
-        .catchError((errorMessage) => context.showSnackbar(errorMessage))
+        .catchError((err) => context.showSnackbar((err as Message).message))
         .whenComplete(() async => await progressDialog.hide());
   }
 }

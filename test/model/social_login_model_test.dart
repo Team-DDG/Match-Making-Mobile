@@ -39,7 +39,7 @@ void main() {
 
       model
           .socialLogin(SocialType.GOOGLE)
-          .catchError((err) => {expect((err as Route).route, '/input/lol')});
+          .catchError((err) => expect((err as Route).route, '/input/lol'));
     });
 
     test('NotFound_Profile', () {
@@ -47,7 +47,7 @@ void main() {
           .thenThrow(NotFoundException());
 
       model.socialLogin(SocialType.GOOGLE).catchError(
-          (err) => {expect((err as Route).route, '/input/profile')});
+          (err) => expect((err as Route).route, '/input/profile'));
     });
 
     test('Success', () {
