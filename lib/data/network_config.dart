@@ -1,0 +1,1 @@
+const BASE_URL = 'https://match-making.jepanglee.page/';

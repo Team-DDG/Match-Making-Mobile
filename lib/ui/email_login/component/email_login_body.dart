@@ -49,6 +49,38 @@ class _EmailLoginBodyState extends State<EmailLoginBody> {
     );
   }
 
+  _buildAccountRow(BuildContext context) => Row(
+    children: <Widget>[
+      GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, '/signup');
+        },
+        child: Text(
+          '계정이 없으신가요?',
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: 'RIXGOM',
+            fontSize: 10,
+          ),
+        ),
+      ),
+      Expanded(child: Container()),
+      GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, '/password/find');
+        },
+        child: Text(
+          '비밀번호를 잊으셨나요?',
+          style: TextStyle(
+            fontSize: 10,
+            color: colorLol,
+            fontFamily: 'RIXGOM',
+          ),
+        ),
+      )
+    ],
+  );
+
   _onClickLogin(BuildContext context, EmailLoginModel model) async {
     final progressDialog = getProgressDialog(context, '로그인 중...');
     await progressDialog.show();
@@ -58,36 +90,4 @@ class _EmailLoginBodyState extends State<EmailLoginBody> {
         .catchError((err) => context.showSnackbar(err))
         .whenComplete(() async => await progressDialog.hide());
   }
-
-  _buildAccountRow(BuildContext context) => Row(
-        children: <Widget>[
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/signup');
-            },
-            child: Text(
-              '계정이 없으신가요?',
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'RIXGOM',
-                fontSize: 10,
-              ),
-            ),
-          ),
-          Expanded(child: Container()),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/password/find');
-            },
-            child: Text(
-              '비밀번호를 잊으셨나요?',
-              style: TextStyle(
-                fontSize: 10,
-                color: colorLol,
-                fontFamily: 'RIXGOM',
-              ),
-            ),
-          )
-        ],
-      );
 }

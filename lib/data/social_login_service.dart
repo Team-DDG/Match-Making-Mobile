@@ -1,10 +1,11 @@
-import 'package:match_making/data/error/firebase_error_handler.dart';
 import 'package:match_making/data/pref/pref_storage.dart';
 import 'package:match_making/data/social/social_login_factory.dart';
 import 'package:match_making/data/social/social_type.dart';
 
+import 'file:///C:/Users/user/FlutterProjects/match_making/lib/data/error/handler/firebase_error_handler.dart';
+
 abstract class SocialLoginService {
-  Future socialLogin(SocialType socialType);
+  Future<String> socialLogin(SocialType socialType);
 }
 
 class SocialLoginServiceImpl implements SocialLoginService {
@@ -13,14 +14,16 @@ class SocialLoginServiceImpl implements SocialLoginService {
   SocialLoginServiceImpl(this._prefStorage);
 
   @override
-  Future socialLogin(SocialType socialType) async {
+  Future<String> socialLogin(SocialType socialType) async {
     try {
       final token =
           await SocialLoginFactory.createSocialLogin(socialType).login();
 
-      _prefStorage.setAccessToken(token);
+      await _prefStorage.setAccessToken(token);
+      return token;
     } catch (e) {
       FirebaseErrorHandler.throwProperException(e);
     }
+    return null;
   }
 }
