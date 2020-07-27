@@ -47,7 +47,7 @@ void main() {
           .thenThrow(NotFoundException());
 
       model.socialLogin(SocialType.GOOGLE).catchError(
-          (err) => expect((err as Route).route, '/input/profile'));
+          (err) => expect((err as Route).route, '/input/information'));
     });
 
     test('Success', () {
