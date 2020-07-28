@@ -69,14 +69,14 @@ class InputProfileModel extends BaseModel {
     notifyListeners();
   }
 
-  void selectKeyword(int id) {
-    _selectedKeywords.add(id);
-    notifyListeners();
-  }
-
-  void cancelSelectKeyword(int id) {
-    _selectedKeywords.remove(id);
-    notifyListeners();
+  void setSelectedKeyword(int id, bool isSelected) {
+    if(isSelected) {
+      _selectedKeywords.add(id);
+      notifyListeners()
+    } else {
+      _selectedKeywords.remove(id);
+      notifyListeners();
+    }
   }
 
   Future postUserProfile() async {

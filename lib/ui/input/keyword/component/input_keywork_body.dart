@@ -43,17 +43,8 @@ class _InputKeywordBodyState extends State<InputKeywordBody> {
 
   _buildLoadingIndicator() => Center(child: CircularProgressIndicator());
 
-  _buildKeywords(InputProfileModel model) =>
-      Wrap(
-          children: model.keywords.map((e) =>
-              KeywordChip(
-                keyword: e,
-                isSelected: model.selectedKeywords.contains(e.id),
-                onSelected: (value) {
-                  if (value == true)
-                    model.selectKeyword(e.id);
-                  else
-                    model.cancelSelectKeyword(e.id);
-                },
-              )).toList());
+  _buildKeywords(InputProfileModel model) => Wrap(
+      children: model.keywords
+          .map((keyword) => KeywordChip(keyword: keyword))
+          .toList());
 }
