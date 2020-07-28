@@ -1,7 +1,7 @@
-class Route {
+class Navigate {
   final String route;
 
-  Route(this.route);
+  Navigate(this.route);
 }
 
 class Message {

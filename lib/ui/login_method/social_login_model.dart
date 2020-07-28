@@ -17,9 +17,9 @@ class SocialLoginModel extends BaseModel {
       await _userService.getUser(token);
     } on NotFoundException catch (e) {
       if (e.message == 'summonerName is null')
-        return Future.error(Route('/input/lol'));
+        return Future.error(Navigate('/input/lol'));
       else
-        return Future.error(Route('/input/information'));
+        return Future.error(Navigate('/input/information'));
     } catch (e) {
       return Future.error(Message('우효오오옷! 에러 겟또다제~ 초 럭키~★'));
     }

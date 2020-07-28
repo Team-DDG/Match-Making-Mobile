@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:match_making/data/error/handling_method_type.dart'
-    as handlingMethod;
+import 'package:match_making/data/error/handling_method_type.dart';
 import 'package:match_making/data/pref/pref_storage_impl.dart';
 import 'package:match_making/data/service/social_login_service.dart';
 import 'package:match_making/data/service/user_service.dart';
@@ -55,14 +54,14 @@ class SocialLoginButtonColumn extends StatelessWidget {
         .socialLogin(socialType)
         .then((value) => Navigator.pushNamed(context, '/main'))
         .catchError((err) => {
-              if (err is handlingMethod.Message)
+              if (err is Message)
                 Fluttertoast.showToast(
                     msg: err.message,
                     toastLength: Toast.LENGTH_SHORT,
                     gravity: ToastGravity.BOTTOM,
                     backgroundColor: Colors.grey,
                     fontSize: 16.0)
-              else if (err is handlingMethod.Route)
+              else if (err is Navigate)
                 Navigator.pushNamed(context, err.route)
             });
   }

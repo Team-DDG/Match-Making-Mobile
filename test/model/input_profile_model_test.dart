@@ -1,11 +1,20 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:match_making/data/service/keyword_service.dart';
+import 'package:match_making/data/service/user_service.dart';
 import 'package:match_making/ui/input/input_profile_model.dart';
+
+import '../mock/mock_keyword_service.dart';
+import '../mock/mock_user_service.dart';
 
 void main()  {
   InputProfileModel model;
+  UserService userService;
+  KeywordService keywordService;
 
   setUpAll(() {
-    model = InputProfileModel();
+    userService = MockUserService();
+    keywordService = MockKeywordService();
+    model = InputProfileModel(userService, keywordService);
   });
 
   group('switchGender', () {

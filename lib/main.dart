@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:match_making/data/service/keyword_service.dart';
+import 'package:match_making/data/service/user_service.dart';
 import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/email_login/email_login_page.dart';
 import 'package:match_making/ui/input/information/input_information_page.dart';
@@ -23,8 +25,13 @@ class MatchMakingApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => InputProfileModel())],
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => InputProfileModel(UserServiceImpl(), KeywordServiceImpl()),
+        )
+      ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         initialRoute: '/login/method',
         routes: {
           '/login/method': (_) => LoginMethodPage(),
