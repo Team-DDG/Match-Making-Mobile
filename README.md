@@ -3,7 +3,7 @@
 나에게 딱 맞는 리그오브레전드 듀오를 찾아줍니다. 친구도 사귀고! 티어도 올리고!
 
 ### 팀원
-세계 최고의 팀워크를 자랑합니다.
+세계 최고의 팀워크를 자랑합니다.  
 [김도훈](https://github.com/kimdohun0104): Flutter mobile developer, designer  
 [이제성](https://github.com/jepangLee): Back-end developer, PM  
 [정재훈](https://github.com/littlemenu): Back-end developer  
