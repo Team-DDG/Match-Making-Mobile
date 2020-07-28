@@ -19,7 +19,7 @@ class SocialLoginModel extends BaseModel {
       if (e.message == 'summonerName is null')
         return Future.error(Route('/input/lol'));
       else
-        return Future.error(Route('/input/profile'));
+        return Future.error(Route('/input/information'));
     } catch (e) {
       return Future.error(Message('우효오오옷! 에러 겟또다제~ 초 럭키~★'));
     }
