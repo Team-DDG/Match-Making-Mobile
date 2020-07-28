@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:intl/intl.dart';
 import 'package:match_making/provider/base_model.dart';
 
 class InputProfileModel extends BaseModel {
@@ -31,10 +32,10 @@ class InputProfileModel extends BaseModel {
   }
 
   void setPlayableTime(String start, String end) {
-    if (DateTime.parse('2000-01-00 $start:00')
-        .isAfter(DateTime.parse('2000-01-00 $end:00'))) {
-      throw Exception();
+    if (DateFormat.Hm().parse(start).isAfter(DateFormat.Hm().parse(end))) {
+      throw Exception('Start time is faster than end time!');
     }
+
     _playableStartTime = start;
     _playableEndTime = end;
 
