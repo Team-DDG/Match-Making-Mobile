@@ -3,11 +3,11 @@
 나에게 딱 맞는 리그오브레전드 듀오를 찾아줍니다. 친구도 사귀고! 티어도 올리고!
 
 ### 팀원
-세계 최고의 팀워크를 자랑합니다. 모두가 PM을 도맡아 진행하고 있습니다.  
-[김도훈](https://github.com/kimdohun0104): Flutter mobile developer, designer, PM  
+세계 최고의 팀워크를 자랑합니다.
+[김도훈](https://github.com/kimdohun0104): Flutter mobile developer, designer
 [이제성](https://github.com/jepangLee): Back-end developer, PM  
-[정재훈](https://github.com/littlemenu): Back-end developer, PM  
-[최승민](https://github.com/choi-seung-min): Flutter mobile developer, PM  
+[정재훈](https://github.com/littlemenu): Back-end developer
+[최승민](https://github.com/choi-seung-min): Flutter mobile developer
 
 ### 주요 기능
 1. 매치: 실시간으로 듀오 메이트와 매칭됩니다.
