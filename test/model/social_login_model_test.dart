@@ -4,7 +4,7 @@ import 'package:match_making/data/error/exception/not_found_exception.dart';
 import 'package:match_making/data/error/handling_method_type.dart';
 import 'package:match_making/data/service/social_login_service.dart';
 import 'package:match_making/data/service/user_service.dart';
-import 'package:match_making/data/social/social_type.dart';
+import 'package:match_making/enum/social_type.dart';
 import 'package:match_making/ui/login_method/social_login_model.dart';
 import 'package:mockito/mockito.dart';
 

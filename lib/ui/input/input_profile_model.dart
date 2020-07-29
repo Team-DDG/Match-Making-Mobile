@@ -6,6 +6,7 @@ import 'package:match_making/data/error/handling_method_type.dart';
 import 'package:match_making/data/response/keyword_response.dart';
 import 'package:match_making/data/service/keyword_service.dart';
 import 'package:match_making/data/service/user_service.dart';
+import 'package:match_making/enum/gender.dart';
 import 'package:match_making/provider/base_model.dart';
 
 class InputProfileModel extends BaseModel {
@@ -94,5 +95,3 @@ class InputProfileModel extends BaseModel {
     }
   }
 }
-
-enum Gender { MALE, FEMALE }

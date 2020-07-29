@@ -5,6 +5,7 @@ import 'package:match_making/data/error/handling_method_type.dart';
 import 'package:match_making/data/response/keyword_response.dart';
 import 'package:match_making/data/service/keyword_service.dart';
 import 'package:match_making/data/service/user_service.dart';
+import 'package:match_making/enum/gender.dart';
 import 'package:match_making/ui/input/input_profile_model.dart';
 import 'package:mockito/mockito.dart';
 
