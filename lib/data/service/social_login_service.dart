@@ -1,7 +1,8 @@
 import 'package:match_making/data/error/handler/firebase_error_handler.dart';
 import 'package:match_making/data/pref/pref_storage.dart';
 import 'package:match_making/data/social/social_login_factory.dart';
-import 'package:match_making/data/social/social_type.dart';
+
+import 'file:///C:/Users/user/AndroidStudioProjects/Match-Making-Mobile/lib/enum/social_type.dart';
 
 abstract class SocialLoginService {
   Future<String> socialLogin(SocialType socialType);

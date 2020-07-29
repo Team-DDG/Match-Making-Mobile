@@ -9,13 +9,14 @@ import 'package:match_making/ui/input/keyword/input_keyword_page.dart';
 import 'package:match_making/ui/login_method/login_method_page.dart';
 import 'package:match_making/ui/page/change_password_page.dart';
 import 'package:match_making/ui/page/find_password_page.dart';
-import 'package:match_making/ui/page/input_lol_page.dart';
 import 'package:match_making/ui/page/leave_page.dart';
 import 'package:match_making/ui/page/main_page.dart';
 import 'package:match_making/ui/page/report_page.dart';
 import 'package:match_making/ui/page/self_certification_page.dart';
 import 'package:match_making/ui/sign_up/sign_up_page.dart';
 import 'package:provider/provider.dart';
+
+import 'file:///C:/Users/user/AndroidStudioProjects/Match-Making-Mobile/lib/ui/input/lol/input_lol_page.dart';
 
 void main() {
   runApp(MatchMakingApp());
