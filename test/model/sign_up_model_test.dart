@@ -12,7 +12,7 @@ void main() {
   SignUpModel model;
   FirebaseAuthService firebaseAuthService;
 
-  setUpAll(() {
+  setUp(() {
     firebaseAuthService = MockFirebaseAuthService();
     model = SignUpModel(firebaseAuthService);
   });

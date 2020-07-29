@@ -16,13 +16,13 @@ void main() {
   UserService userService;
   SocialLoginModel model;
 
-  group('socialLogin', () {
-    setUpAll(() {
-      socialLoginService = MockSocialLoginService();
-      userService = MockUserService();
-      model = SocialLoginModel(socialLoginService, userService);
-    });
+  setUp(() {
+    socialLoginService = MockSocialLoginService();
+    userService = MockUserService();
+    model = SocialLoginModel(socialLoginService, userService);
+  });
 
+  group('socialLogin', () {
     test('InternalServerError', () {
       when(socialLoginService.socialLogin(SocialType.GOOGLE))
           .thenThrow(InternalException());
@@ -39,7 +39,7 @@ void main() {
 
       model
           .socialLogin(SocialType.GOOGLE)
-          .catchError((err) => expect((err as Route).route, '/input/lol'));
+          .catchError((err) => expect((err as Navigate).route, '/input/lol'));
     });
 
     test('NotFound_Profile', () {
@@ -47,7 +47,7 @@ void main() {
           .thenThrow(NotFoundException());
 
       model.socialLogin(SocialType.GOOGLE).catchError(
-          (err) => expect((err as Route).route, '/input/information'));
+          (err) => expect((err as Navigate).route, '/input/information'));
     });
 
     test('Success', () {
