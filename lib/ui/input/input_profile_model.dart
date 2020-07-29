@@ -70,13 +70,11 @@ class InputProfileModel extends BaseModel {
   }
 
   void setSelectedKeyword(int id, bool isSelected) {
-    if(isSelected) {
+    if (isSelected)
       _selectedKeywords.add(id);
-      notifyListeners()
-    } else {
+    else
       _selectedKeywords.remove(id);
-      notifyListeners();
-    }
+    notifyListeners();
   }
 
   Future postUserProfile() async {

@@ -13,7 +13,7 @@ void main() {
   EmailLoginModel model;
   FirebaseAuthService firebaseAuthService;
 
-  setUpAll(() {
+  setUp(() {
     firebaseAuthService = MockFirebaseAuthService();
     model = EmailLoginModel(firebaseAuthService);
   });

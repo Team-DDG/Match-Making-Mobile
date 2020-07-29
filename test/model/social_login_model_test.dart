@@ -16,13 +16,13 @@ void main() {
   UserService userService;
   SocialLoginModel model;
 
-  group('socialLogin', () {
-    setUpAll(() {
-      socialLoginService = MockSocialLoginService();
-      userService = MockUserService();
-      model = SocialLoginModel(socialLoginService, userService);
-    });
+  setUp(() {
+    socialLoginService = MockSocialLoginService();
+    userService = MockUserService();
+    model = SocialLoginModel(socialLoginService, userService);
+  });
 
+  group('socialLogin', () {
     test('InternalServerError', () {
       when(socialLoginService.socialLogin(SocialType.GOOGLE))
           .thenThrow(InternalException());
