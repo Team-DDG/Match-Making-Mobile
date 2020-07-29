@@ -1,6 +1,6 @@
 import 'package:match_making/data/social/social_login.dart';
+import 'package:match_making/enum/social_type.dart';
 
-import 'file:///C:/Users/user/AndroidStudioProjects/Match-Making-Mobile/lib/enum/social_type.dart';
 
 class SocialLoginFactory {
   static SocialLogin createSocialLogin(SocialType socialType) {

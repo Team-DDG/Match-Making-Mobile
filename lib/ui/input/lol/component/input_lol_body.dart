@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:match_making/data/response/summoner_response.dart';
 import 'package:match_making/ui/input/lol/component/rank_info_widget.dart';
+import 'package:match_making/ui/input/lol/component/summoner_name_auto_complete.dart';
 import 'package:match_making/ui/input/lol/component/user_info_widget.dart';
 
 import '../../../colors.dart';
@@ -39,67 +40,31 @@ class _InputLolPageState extends State<InputLolPage> {
   }
 
   _buildAutoCompleteTextField() => AutoCompleteTextField<SummonerResponse>(
-    key: key,
-    decoration: InputDecoration(
-      enabledBorder: UnderlineInputBorder(
-        borderSide: BorderSide(color: Colors.grey[600]),
-      ),
-      focusedBorder: UnderlineInputBorder(
-        borderSide: BorderSide(color: colorLol),
-      ),
-      hintText: '소환사 이름',
-      hintStyle: TextStyle(color: Colors.grey[600]),
-      contentPadding: EdgeInsets.only(left: 12),
-    ),
-    style: TextStyle(
-      color: Colors.white,
-      fontSize: 16,
-    ),
-    suggestions: <SummonerResponse>[
-      SummonerResponse(),
-      SummonerResponse(),
-      SummonerResponse(),
-    ],
-    itemFilter: (item, query) =>
-        item.summonerName.toLowerCase().startsWith(query.toLowerCase()),
-    itemSorter: (a, b) => a.summonerName.compareTo(b.summonerName),
-    itemSubmitted: (item) {},
-    itemBuilder: (context, item) => Container(
-      padding: EdgeInsets.all(12),
-      color: Colors.grey[900],
-      child: Row(
-        children: <Widget>[
-          CircleAvatar(
-            backgroundImage: NetworkImage(
-                'https://i.pinimg.com/600x315/be/91/97/be9197d18d091abb4647cb115431fef9.jpg'),
-            backgroundColor: Colors.transparent,
-            radius: 20,
+        key: key,
+        decoration: InputDecoration(
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.grey[600]),
           ),
-          SizedBox(width: 10),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                item.summonerName,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
-                  fontFamily: 'RIXGOM',
-                ),
-              ),
-              SizedBox(height: 4),
-              Text(
-                'Lv. ' + item.level.toString(),
-                style: TextStyle(
-                  color: colorWhiteTransparency[70],
-                  fontFamily: 'RIXGOM',
-                  fontSize: 10,
-                ),
-              )
-            ],
-          )
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: colorLol),
+          ),
+          hintText: '소환사 이름',
+          hintStyle: TextStyle(color: Colors.grey[600]),
+          contentPadding: EdgeInsets.only(left: 12),
+        ),
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 16,
+        ),
+        suggestions: <SummonerResponse>[
+          SummonerResponse(),
+          SummonerResponse(),
+          SummonerResponse(),
         ],
-      ),
-    ),
-  );
+        itemFilter: (item, query) =>
+            item.summonerName.toLowerCase().startsWith(query.toLowerCase()),
+        itemSorter: (a, b) => a.summonerName.compareTo(b.summonerName),
+        itemSubmitted: (item) {},
+        itemBuilder: (context, item) => SummonerNameAutoComplete(item: item),
+      );
 }
