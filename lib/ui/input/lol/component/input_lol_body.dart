@@ -10,12 +10,12 @@ import '../../../colors.dart';
 import '../../../styles.dart';
 import 'most_info_widget.dart';
 
-class InputLolPage extends StatefulWidget {
+class InputLolBody extends StatefulWidget {
   @override
-  _InputLolPageState createState() => _InputLolPageState();
+  _InputLolBodyState createState() => _InputLolBodyState();
 }
 
-class _InputLolPageState extends State<InputLolPage> {
+class _InputLolBodyState extends State<InputLolBody> {
   GlobalKey<AutoCompleteTextFieldState<SummonerResponse>> key = GlobalKey();
 
   @override

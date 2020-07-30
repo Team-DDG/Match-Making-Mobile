@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:match_making/ui/input/lol/component/select_position_dialog.dart';
 
 import '../../../colors.dart';
 
@@ -37,17 +38,29 @@ class UserInfoWidget extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 14),
-              Text('major: Support',
-                  style: TextStyle(
-                      fontSize: 14, color: colorWhiteTransparency[70])),
+              _buildPositionRow(context),
               SizedBox(height: 4),
-              Text('minor: Jungle',
-                  style: TextStyle(
-                      fontSize: 14, color: colorWhiteTransparency[70])),
+              _buildPositionRow(context)
             ],
           ),
         ],
       ),
     );
   }
+
+  _buildPositionRow(BuildContext context) => GestureDetector(
+        onTap: () {
+          showDialog(
+              context: context, builder: (context) => SelectPositionDialog());
+        },
+        child: Row(
+          children: [
+            Text('major: Support',
+                style:
+                    TextStyle(fontSize: 14, color: colorWhiteTransparency[70])),
+            SizedBox(width: 6),
+            Image.asset('assets/icons/ic_edit.png'),
+          ],
+        ),
+      );
 }
