@@ -12,16 +12,17 @@ import 'package:provider/provider.dart';
 import '../../../styles.dart';
 import 'most_info_widget.dart';
 
-class InputLolPage extends StatefulWidget {
+class InputLolBody extends StatefulWidget {
   @override
-  _InputLolPageState createState() => _InputLolPageState();
+  _InputLolBodyState createState() => _InputLolBodyState();
 }
 
-class _InputLolPageState extends State<InputLolPage> {
+class _InputLolBodyState extends State<InputLolBody> {
   TextEditingController _lolInputController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final model = context.watch<InputProfileModel>();
     return Container(
       child: SingleChildScrollView(
         child: Column(
@@ -37,14 +38,12 @@ class _InputLolPageState extends State<InputLolPage> {
                         final progressBar =
                             getProgressDialog(context, '조회중입니다...');
                         await progressBar.show();
-                        context
-                            .read<InputProfileModel>()
+                        model
                             .getLolBySummonerName({'summonerName': _lolInputController.value})
-                            .then((value) => _updateInfo(value))
+                            .then((value) =>
                             .catchError((e) => {
                                   if (e is Navigate)
-                                    Navigator.pushReplacementNamed(
-                                        context, e.route)
+                                    Navigator.pushReplacementNamed(context, e.route)
                                   else if (e is Message)
                                     context.showSnackbar(e.message)
                                 })
@@ -54,16 +53,14 @@ class _InputLolPageState extends State<InputLolPage> {
                     )),
               ),
             ),
-            UserInfoWidget(),
-            SizedBox(height: 12),
-            RankInfoWidget(),
-            SizedBox(height: 12),
-            MostInfoWidget()
+
           ],
         ),
       ),
     );
   }
 
-  _updateInfo(LolResponse response) {}
+  _updateInfo(LolResponse response) {
+
+  }
 }
