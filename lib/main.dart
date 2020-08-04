@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:match_making/data/service/keyword_service.dart';
+import 'package:match_making/data/service/lol_service.dart';
 import 'package:match_making/data/service/user_service.dart';
 import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/email_login/email_login_page.dart';
@@ -28,7 +29,7 @@ class MatchMakingApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => InputProfileModel(UserServiceImpl(), KeywordServiceImpl()),
+          create: (_) => InputProfileModel(UserServiceImpl(), KeywordServiceImpl(), LolServiceImpl()),
         )
       ],
       child: MaterialApp(

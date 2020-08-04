@@ -22,7 +22,8 @@ class SocialLoginModel extends BaseModel {
       else
         return Future.error(Navigate('/input/information'));
     } catch (e) {
-      return Future.error(Message('우효오오옷! 에러 겟또다제~ 초 럭키~★'));
+      print(e.toString());
+      return Future.error(Message('우효오오옷! 에러 겟또다제~ 초 럭키~★, ${e.toString()}'));
     }
     return null;
   }
