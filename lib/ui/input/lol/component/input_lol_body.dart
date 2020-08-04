@@ -5,12 +5,9 @@ import 'package:match_making/data/response/lol_response.dart';
 import 'package:match_making/extension/context_ext.dart';
 import 'package:match_making/ui/component/progress_dialog.dart';
 import 'package:match_making/ui/input/input_profile_model.dart';
-import 'package:match_making/ui/input/lol/component/rank_info_widget.dart';
-import 'package:match_making/ui/input/lol/component/user_info_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../../styles.dart';
-import 'most_info_widget.dart';
 
 class InputLolBody extends StatefulWidget {
   @override
@@ -40,7 +37,7 @@ class _InputLolBodyState extends State<InputLolBody> {
                         await progressBar.show();
                         model
                             .getLolBySummonerName({'summonerName': _lolInputController.value})
-                            .then((value) =>
+                            .then((value) => {})
                             .catchError((e) => {
                                   if (e is Navigate)
                                     Navigator.pushReplacementNamed(context, e.route)
