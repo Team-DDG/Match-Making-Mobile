@@ -103,7 +103,7 @@ class InputProfileModel extends BaseModel {
     }
   }
 
-  Future<LolResponse> getLolBySummonerName(Map<String, dynamic> queryBody) async {
+  Future<LolResponse> getLolBySummonerName(Map<String, String> queryBody) async {
     try {
       return await _lolService.getLolBySummonerName(queryBody);
     } on UnauthorizedException {
