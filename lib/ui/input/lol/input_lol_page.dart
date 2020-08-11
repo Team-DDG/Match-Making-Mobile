@@ -28,7 +28,7 @@ class InputLolPage extends StatelessWidget {
                       color: colorLol,
                       fontSize: 18,
                     ),
-                  ), ,
+                  ),
               )
           ),
         ),
