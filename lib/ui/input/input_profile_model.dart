@@ -103,9 +103,10 @@ class InputProfileModel extends BaseModel {
     }
   }
 
-  Future<LolResponse> getLolBySummonerName(Map<String, String> queryBody) async {
+  Future getLolBySummonerName(Map<String, String> queryBody) async {
     try {
-      return await _lolService.getLolBySummonerName(queryBody);
+      _lolResponse = await _lolService.getLolBySummonerName(queryBody);
+      notifyListeners();
     } on UnauthorizedException {
       return Future.error(Navigate('/loginMethod'));
     } on NotFoundException {

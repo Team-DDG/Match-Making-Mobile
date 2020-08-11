@@ -5,9 +5,12 @@ import 'package:match_making/data/response/lol_response.dart';
 import 'package:match_making/extension/context_ext.dart';
 import 'package:match_making/ui/component/progress_dialog.dart';
 import 'package:match_making/ui/input/input_profile_model.dart';
+import 'package:match_making/ui/input/lol/component/rank_info_widget.dart';
+import 'package:match_making/ui/input/lol/component/user_info_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../../styles.dart';
+import 'most_info_widget.dart';
 
 class InputLolBody extends StatefulWidget {
   @override
@@ -28,6 +31,7 @@ class _InputLolBodyState extends State<InputLolBody> {
               padding: padding48,
               child: TextField(
                 controller: _lolInputController,
+                style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                     hintText: '소환사명을 입력하세요',
                     suffixIcon: IconButton(
@@ -36,11 +40,14 @@ class _InputLolBodyState extends State<InputLolBody> {
                             getProgressDialog(context, '조회중입니다...');
                         await progressBar.show();
                         model
-                            .getLolBySummonerName({'summonerName': _lolInputController.value})
-                            .then((value) => {})
+                            .getLolBySummonerName({
+                              'summonerName':
+                                  _lolInputController.value.text
+                            })
                             .catchError((e) => {
                                   if (e is Navigate)
-                                    Navigator.pushReplacementNamed(context, e.route)
+                                    Navigator.pushReplacementNamed(
+                                        context, e.route)
                                   else if (e is Message)
                                     context.showSnackbar(e.message)
                                 })
@@ -50,7 +57,7 @@ class _InputLolBodyState extends State<InputLolBody> {
                     )),
               ),
             ),
-
+            _updateInfo(model.lolResponse),
           ],
         ),
       ),
@@ -58,6 +65,21 @@ class _InputLolBodyState extends State<InputLolBody> {
   }
 
   _updateInfo(LolResponse response) {
-
+    print('response: ${response.toString()}');
+    if (response != null) {
+      print('result: success');
+      return Column(
+        children: <Widget>[
+          UserInfoWidget(),
+          SizedBox(height: 12),
+          RankInfoWidget(),
+          SizedBox(height: 12),
+          MostInfoWidget()
+        ],
+      );
+    } else {
+      print('result: container');
+      return Container();
+    }
   }
 }

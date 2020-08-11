@@ -114,11 +114,13 @@ void main() {
   });
 
   group('getLolBySummonerName', () {
+
     test('Success', () {
-      when(lolService.getLolBySummonerName({'summonerName': '나디코아니다'}))
+      final request = {'summonerName': '나디코아니다'};
+      when(lolService.getLolBySummonerName(request))
           .thenAnswer((_) => Future.value(LolResponse()));
 
-      model.getLolBySummonerName({'summonerName': '나디코아니다'}).then(
+      model.getLolBySummonerName(request).then(
           (value) => expect(value is LolResponse, true));
     });
   });
