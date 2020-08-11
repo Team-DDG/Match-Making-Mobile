@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:match_making/data/service/keyword_service.dart';
+import 'package:match_making/data/service/lol_service.dart';
 import 'package:match_making/data/service/user_service.dart';
 import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/email_login/email_login_page.dart';
 import 'package:match_making/ui/input/information/input_information_page.dart';
 import 'package:match_making/ui/input/input_profile_model.dart';
 import 'package:match_making/ui/input/keyword/input_keyword_page.dart';
-import 'package:match_making/ui/input/lol/component/input_lol_body.dart';
+import 'package:match_making/ui/input/lol/input_lol_page.dart';
 import 'package:match_making/ui/login_method/login_method_page.dart';
 import 'package:match_making/ui/page/change_password_page.dart';
 import 'package:match_making/ui/page/find_password_page.dart';
@@ -28,12 +29,12 @@ class MatchMakingApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => InputProfileModel(UserServiceImpl(), KeywordServiceImpl()),
+          create: (_) => InputProfileModel(UserServiceImpl(), KeywordServiceImpl(), LolServiceImpl()),
         )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/login/method',
+        initialRoute: '/input/lol',
         routes: {
           '/login/method': (_) => LoginMethodPage(),
           '/login/email': (_) => EmailLoginPage(),

@@ -1,10 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
 import 'package:match_making/data/error/exception/conflict_exception.dart';
+import 'package:match_making/data/error/exception/not_found_exception.dart';
 import 'package:match_making/data/error/exception/unauthorized_exception.dart';
 import 'package:match_making/data/error/handling_method_type.dart';
 import 'package:match_making/data/response/keyword_response.dart';
+import 'package:match_making/data/response/lol_response.dart';
 import 'package:match_making/data/service/keyword_service.dart';
+import 'package:match_making/data/service/lol_service.dart';
 import 'package:match_making/data/service/user_service.dart';
 import 'package:match_making/enum/gender.dart';
 import 'package:match_making/provider/base_model.dart';
@@ -12,8 +15,9 @@ import 'package:match_making/provider/base_model.dart';
 class InputProfileModel extends BaseModel {
   final UserService _userService;
   final KeywordService _keywordService;
+  final LolService _lolService;
 
-  InputProfileModel(this._userService, this._keywordService);
+  InputProfileModel(this._userService, this._keywordService, this._lolService);
 
   String _email;
 
@@ -38,6 +42,10 @@ class InputProfileModel extends BaseModel {
   List<int> _selectedKeywords = List();
 
   List<int> get selectedKeywords => _selectedKeywords;
+
+  LolResponse _lolResponse;
+
+  LolResponse get lolResponse => _lolResponse;
 
   Future getEmail() async {
     final user = await FirebaseAuth.instance.currentUser();
@@ -92,6 +100,17 @@ class InputProfileModel extends BaseModel {
       return Future.error(Navigate('/loginMethod'));
     } on ConflictException {
       return Future.error(Message('이미 존재하는 이메일입니다'));
+    }
+  }
+
+  Future getLolBySummonerName(Map<String, String> queryBody) async {
+    try {
+      _lolResponse = await _lolService.getLolBySummonerName(queryBody);
+      notifyListeners();
+    } on UnauthorizedException {
+      return Future.error(Navigate('/loginMethod'));
+    } on NotFoundException {
+      return Future.error(Message('없는 소환사명입니다.'));
     }
   }
 }

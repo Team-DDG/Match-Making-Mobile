@@ -3,24 +3,29 @@ import 'package:match_making/data/error/exception/conflict_exception.dart';
 import 'package:match_making/data/error/exception/unauthorized_exception.dart';
 import 'package:match_making/data/error/handling_method_type.dart';
 import 'package:match_making/data/response/keyword_response.dart';
+import 'package:match_making/data/response/lol_response.dart';
 import 'package:match_making/data/service/keyword_service.dart';
+import 'package:match_making/data/service/lol_service.dart';
 import 'package:match_making/data/service/user_service.dart';
 import 'package:match_making/enum/gender.dart';
 import 'package:match_making/ui/input/input_profile_model.dart';
 import 'package:mockito/mockito.dart';
 
 import '../mock/mock_keyword_service.dart';
+import '../mock/mock_lol_service.dart';
 import '../mock/mock_user_service.dart';
 
 void main() {
   InputProfileModel model;
   UserService userService;
   KeywordService keywordService;
+  LolService lolService;
 
   setUp(() {
     userService = MockUserService();
     keywordService = MockKeywordService();
-    model = InputProfileModel(userService, keywordService);
+    lolService = MockLolService();
+    model = InputProfileModel(userService, keywordService, lolService);
   });
 
   group('switchGender', () {
@@ -98,15 +103,27 @@ void main() {
       when(model.postUserProfile()).thenThrow(ConflictException());
 
       model.postUserProfile().catchError((err) => {
-        expect(err is Message, true),
-        expect((err as Message).message, '이미 존재하는 이메일입니다')
-      });
+            expect(err is Message, true),
+            expect((err as Message).message, '이미 존재하는 이메일입니다')
+          });
     });
 
     test('Success', () {
       when(model.postUserProfile()).thenAnswer((_) => Future.value());
 
       model.postUserProfile().then((value) => expect(value, null));
+    });
+  });
+
+  group('getLolBySummonerName', () {
+    test('Success', () {
+      final request = {'summonerName': '나디코아니다'};
+      final response = LolResponse();
+      when(lolService.getLolBySummonerName(request))
+          .thenAnswer((_) => Future.value(response));
+
+      model.getLolBySummonerName(request).then((value) =>
+          {expect(value, null), expect(model.lolResponse, response)});
     });
   });
 }

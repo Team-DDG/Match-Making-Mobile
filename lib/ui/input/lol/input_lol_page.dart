@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/component/common_app_bar.dart';
+import 'package:match_making/ui/input/lol/component/input_lol_body.dart';
 
 class InputLolPage extends StatelessWidget {
   @override
@@ -26,6 +27,6 @@ class InputLolPage extends StatelessWidget {
         SizedBox(width: 24)
       ],
     ),
-        body: InputLolPage());
+        body: InputLolBody());
   }
 }
