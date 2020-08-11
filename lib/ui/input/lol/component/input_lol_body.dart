@@ -56,14 +56,14 @@ class _InputLolBodyState extends State<InputLolBody> {
                     )),
               ),
             ),
-            _updateInfo(model.lolResponse),
+            _buildLolInfo(model.lolResponse),
           ],
         ),
       ),
     );
   }
 
-  _updateInfo(LolResponse response) {
+  _buildLolInfo(LolResponse response) {
     if (response != null) {
       return Column(
         children: <Widget>[

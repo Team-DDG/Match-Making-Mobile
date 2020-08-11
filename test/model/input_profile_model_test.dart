@@ -12,6 +12,7 @@ import 'package:match_making/ui/input/input_profile_model.dart';
 import 'package:mockito/mockito.dart';
 
 import '../mock/mock_keyword_service.dart';
+import '../mock/mock_lol_service.dart';
 import '../mock/mock_user_service.dart';
 
 void main() {
@@ -23,6 +24,7 @@ void main() {
   setUp(() {
     userService = MockUserService();
     keywordService = MockKeywordService();
+    lolService = MockLolService();
     model = InputProfileModel(userService, keywordService, lolService);
   });
 
@@ -114,14 +116,14 @@ void main() {
   });
 
   group('getLolBySummonerName', () {
-
     test('Success', () {
       final request = {'summonerName': '나디코아니다'};
+      final response = LolResponse();
       when(lolService.getLolBySummonerName(request))
-          .thenAnswer((_) => Future.value(LolResponse()));
+          .thenAnswer((_) => Future.value(response));
 
-      model.getLolBySummonerName(request).then(
-          (value) => expect(value is LolResponse, true));
+      model.getLolBySummonerName(request).then((value) =>
+          {expect(value, null), expect(model.lolResponse, response)});
     });
   });
 }
