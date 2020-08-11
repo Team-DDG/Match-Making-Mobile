@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../colors.dart';
 
 class UserInfoWidget extends StatelessWidget {
+  final String icon;
+  final String name;
+  final int level;
+
+  UserInfoWidget({this.icon, this.name, this.level});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,8 +16,7 @@ class UserInfoWidget extends StatelessWidget {
       child: Row(
         children: <Widget>[
           CircleAvatar(
-            backgroundImage: NetworkImage(
-                'https://i.pinimg.com/600x315/be/91/97/be9197d18d091abb4647cb115431fef9.jpg'),
+            backgroundImage: NetworkImage(icon),
             backgroundColor: Colors.transparent,
             radius: 43,
           ),
@@ -22,7 +27,7 @@ class UserInfoWidget extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Text(
-                    '나디코아니다',
+                    name,
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.white,
@@ -30,7 +35,7 @@ class UserInfoWidget extends StatelessWidget {
                   ),
                   SizedBox(width: 12),
                   Text(
-                    'Lv. 2',
+                    'Lv. $level',
                     style: TextStyle(
                         fontSize: 12, color: colorWhiteTransparency[70]),
                   )

@@ -1,10 +1,10 @@
 class LolResponse {
   String evaluation;
-  FlexRank flexRank;
+  Rank flexRank;
   String icon;
   dynamic level;
-  List<Mosts> mosts;
-  FlexRank soloRank;
+  List<Most> mosts;
+  Rank soloRank;
   String summonerName;
 
   LolResponse(
@@ -19,18 +19,18 @@ class LolResponse {
   LolResponse.fromJson(Map<String, dynamic> json) {
     evaluation = json['evaluation'];
     flexRank = json['flexRank'] != null
-        ? new FlexRank.fromJson(json['flexRank'])
+        ? new Rank.fromJson(json['flexRank'])
         : null;
     icon = json['icon'];
     level = json['level'];
     if (json['mosts'] != null) {
-      mosts = new List<Mosts>();
+      mosts = new List<Most>();
       json['mosts'].forEach((v) {
-        mosts.add(new Mosts.fromJson(v));
+        mosts.add(new Most.fromJson(v));
       });
     }
     soloRank = json['soloRank'] != null
-        ? new FlexRank.fromJson(json['soloRank'])
+        ? new Rank.fromJson(json['soloRank'])
         : null;
     summonerName = json['summonerName'];
   }
@@ -54,13 +54,13 @@ class LolResponse {
   }
 }
 
-class FlexRank {
+class Rank {
   String image;
   String name;
 
-  FlexRank({this.image, this.name});
+  Rank({this.image, this.name});
 
-  FlexRank.fromJson(Map<String, dynamic> json) {
+  Rank.fromJson(Map<String, dynamic> json) {
     image = json['image'];
     name = json['name'];
   }
@@ -73,16 +73,16 @@ class FlexRank {
   }
 }
 
-class Mosts {
+class Most {
   String evaluation;
   dynamic gameCount;
   String image;
   String name;
   int winRate;
 
-  Mosts({this.evaluation, this.gameCount, this.image, this.name, this.winRate});
+  Most({this.evaluation, this.gameCount, this.image, this.name, this.winRate});
 
-  Mosts.fromJson(Map<String, dynamic> json) {
+  Most.fromJson(Map<String, dynamic> json) {
     evaluation = json['evaluation'];
     gameCount = json['gameCount'];
     image = json['image'];

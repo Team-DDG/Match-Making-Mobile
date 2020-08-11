@@ -41,8 +41,7 @@ class _InputLolBodyState extends State<InputLolBody> {
                         await progressBar.show();
                         model
                             .getLolBySummonerName({
-                              'summonerName':
-                                  _lolInputController.value.text
+                              'summonerName': _lolInputController.value.text
                             })
                             .catchError((e) => {
                                   if (e is Navigate)
@@ -65,20 +64,26 @@ class _InputLolBodyState extends State<InputLolBody> {
   }
 
   _updateInfo(LolResponse response) {
-    print('response: ${response.toString()}');
     if (response != null) {
-      print('result: success');
       return Column(
         children: <Widget>[
-          UserInfoWidget(),
+          UserInfoWidget(
+            icon: response.icon,
+            name: response.summonerName,
+            level: response.level,
+          ),
           SizedBox(height: 12),
-          RankInfoWidget(),
+          RankInfoWidget(
+            flexRank: response.flexRank,
+            soloRank: response.soloRank,
+          ),
           SizedBox(height: 12),
-          MostInfoWidget()
+          MostInfoWidget(
+            mosts: response.mosts,
+          )
         ],
       );
     } else {
-      print('result: container');
       return Container();
     }
   }
