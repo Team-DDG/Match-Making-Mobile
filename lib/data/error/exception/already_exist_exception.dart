@@ -1,0 +1,3 @@
+class AlreadyExistException implements Exception {
+
+}

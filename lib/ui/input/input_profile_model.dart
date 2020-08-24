@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
+import 'package:match_making/data/error/exception/already_exist_exception.dart';
 import 'package:match_making/data/error/exception/conflict_exception.dart';
 import 'package:match_making/data/error/exception/not_found_exception.dart';
 import 'package:match_making/data/error/exception/unauthorized_exception.dart';
@@ -46,6 +47,10 @@ class InputProfileModel extends BaseModel {
   LolResponse _lolResponse;
 
   LolResponse get lolResponse => _lolResponse;
+
+  String _summonerName;
+
+  String get summonerName => _summonerName;
 
   Future getEmail() async {
     final user = await FirebaseAuth.instance.currentUser();
@@ -103,14 +108,28 @@ class InputProfileModel extends BaseModel {
     }
   }
 
-  Future getLolBySummonerName(Map<String, String> queryBody) async {
+  Future getLolBySummonerName() async {
     try {
-      _lolResponse = await _lolService.getLolBySummonerName(queryBody);
+      _lolResponse = await _lolService.getLolBySummonerName({
+        'summonerName': summonerName
+      });
       notifyListeners();
     } on UnauthorizedException {
       return Future.error(Navigate('/loginMethod'));
     } on NotFoundException {
       return Future.error(Message('없는 소환사명입니다.'));
+    }
+  }
+
+  Future postLolBySummonerName() async {
+    try {
+      await _lolService.postLolBySummonerName({
+        'summonerName': summonerName
+      });
+    } on UnauthorizedException {
+      return Future.error(Navigate('/loginMethod'));
+    } on AlreadyExistException {
+      return Future.error(Message('이미 존재하는 소환사입니다.'));
     }
   }
 }

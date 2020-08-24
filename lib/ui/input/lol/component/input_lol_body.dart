@@ -18,8 +18,6 @@ class InputLolBody extends StatefulWidget {
 }
 
 class _InputLolBodyState extends State<InputLolBody> {
-  TextEditingController _lolInputController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     final model = context.watch<InputProfileModel>();
@@ -30,7 +28,7 @@ class _InputLolBodyState extends State<InputLolBody> {
             Padding(
               padding: padding48,
               child: TextField(
-                controller: _lolInputController,
+                controller: TextEditingController(text: model.summonerName),
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                     hintText: '소환사명을 입력하세요',
@@ -40,9 +38,7 @@ class _InputLolBodyState extends State<InputLolBody> {
                             getProgressDialog(context, '조회중입니다...');
                         await progressBar.show();
                         model
-                            .getLolBySummonerName({
-                              'summonerName': _lolInputController.value.text
-                            })
+                            .getLolBySummonerName()
                             .catchError((e) => {
                                   if (e is Navigate)
                                     Navigator.pushReplacementNamed(

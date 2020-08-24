@@ -122,7 +122,7 @@ void main() {
       when(lolService.getLolBySummonerName(request))
           .thenAnswer((_) => Future.value(response));
 
-      model.getLolBySummonerName(request).then((value) =>
+      model.getLolBySummonerName().then((value) =>
           {expect(value, null), expect(model.lolResponse, response)});
     });
   });

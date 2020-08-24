@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:match_making/data/error/handling_method_type.dart';
+import 'package:match_making/extension/context_ext.dart';
 import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/component/common_app_bar.dart';
 import 'package:match_making/ui/input/input_profile_model.dart';
@@ -20,7 +22,13 @@ class InputLolPage extends StatelessWidget {
               },
               child: GestureDetector(
                 onTap: () {
-
+                  model.postLolBySummonerName().catchError((e) => {
+                    if(e is Navigate)
+                      Navigator.pushNamed(context, e.route)
+                    else if(e is Message)
+                      context.showSnackbar(e.message)
+                  }).whenComplete(() => Navigator.pushNamed(context, '/main'));
+                  //TODO: test if post is working
                 },
                   child: Text(
                     '다음',
