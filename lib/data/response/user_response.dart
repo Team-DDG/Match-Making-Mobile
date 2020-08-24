@@ -1,3 +1,9 @@
+
+import 'package:json_annotation/json_annotation.dart';
+
+part 'user_response.g.dart';
+
+@JsonSerializable()
 class UserResponse {
   final String email;
   final String gender;
@@ -12,12 +18,8 @@ class UserResponse {
       this.playableEndTime,
       this.playableStartTime});
 
-  factory UserResponse.fromJson(Map<String, dynamic> json) {
-    return UserResponse(
-        email: json['email'],
-        gender: json['gender'],
-        keywords: json['keywords'],
-        playableEndTime: json['playableEndTime'],
-        playableStartTime: json['playableStartTime']);
-  }
+  Map<String, dynamic> toJson() => _$UserResponseToJson(this);
+
+  static UserResponse fromJson(Map<String, dynamic> json) =>
+      _$UserResponseFromJson(json);
 }
