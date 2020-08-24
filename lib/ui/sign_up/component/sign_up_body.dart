@@ -3,7 +3,6 @@ import 'package:match_making/data/error/handling_method_type.dart';
 import 'package:match_making/extension/context_ext.dart';
 import 'package:match_making/ui/component/common_button.dart';
 import 'package:match_making/ui/component/common_text_field.dart';
-import 'package:match_making/ui/component/progress_dialog.dart';
 import 'package:match_making/ui/sign_up/sign_up_model.dart';
 import 'package:match_making/ui/styles.dart';
 import 'package:provider/provider.dart';
@@ -59,8 +58,7 @@ class _SignUpBodyState extends State<SignUpBody> {
   }
 
   _onClickSignUp(BuildContext context) async {
-    final progressDialog = getProgressDialog(context, '회원가입 중...');
-    await progressDialog.show();
+    final progressDialog = await context.showAndGetProgressDialog('회원가입 중...');
     context
         .read<SignUpModel>()
         .signUp(
@@ -70,6 +68,6 @@ class _SignUpBodyState extends State<SignUpBody> {
         )
         .then((value) => Navigator.pop(context))
         .catchError((err) => context.showSnackbar((err as Message).message))
-        .whenComplete(() async => await progressDialog.hide());
+        .whenComplete(() => progressDialog.hide());
   }
 }
