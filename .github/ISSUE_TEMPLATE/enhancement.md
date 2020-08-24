@@ -1,20 +1,16 @@
 ---
 name: Enhancement
-about: Something to enhance
+about: 기존 구현을 개선합니다.
 title: ''
 labels: enhancement
 assignees: ''
 
 ---
 
-**What is the problem, where it is?**
-A clear and concise description of what the problem is.
+**기존 문제점은 무엇인가요? 어디에 위치하고 있나요?**
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**어떤 방식으로 개선되었으면 좋겠나요?**
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**생각한 대안을 구체적으로 설명해주세요**
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**추가적인 말**
