@@ -4,7 +4,6 @@ import 'package:match_making/extension/context_ext.dart';
 import 'package:match_making/ui/colors.dart';
 import 'package:match_making/ui/component/common_button.dart';
 import 'package:match_making/ui/component/common_text_field.dart';
-import 'package:match_making/ui/component/progress_dialog.dart';
 import 'package:match_making/ui/email_login/email_login_model.dart';
 import 'package:match_making/ui/styles.dart';
 import 'package:provider/provider.dart';
@@ -79,14 +78,12 @@ class _EmailLoginBodyState extends State<EmailLoginBody> {
       );
 
   _onClickLogin(BuildContext context) async {
-    final progressDialog = getProgressDialog(context, '로그인 중...');
-    await progressDialog.show();
-
+    final progressDialog = await context.showAndGetProgressDialog('로그인 중...');
     context
         .read<EmailLoginModel>()
         .login(emailController.text.trim(), passwordController.text.trim())
         .then((value) => Navigator.pushNamed(context, '/main'))
         .catchError((err) => context.showSnackbar((err as Message).message))
-        .whenComplete(() async => await progressDialog.hide());
+        .whenComplete(() => progressDialog.hide());
   }
 }
