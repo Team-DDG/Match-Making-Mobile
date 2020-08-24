@@ -6,7 +6,12 @@ abstract class FirebaseAuthService {
 
   Future login(String email, String password);
 
-  Future phoneAuth(String phone);
+  Future phoneAuth(
+      String phone,
+      PhoneVerificationCompleted completed,
+      PhoneVerificationFailed failed,
+      PhoneCodeSent codeSent,
+      Function(String verificationId) timeOut);
 }
 
 class FirebaseAuthServiceImpl implements FirebaseAuthService {
@@ -30,21 +35,21 @@ class FirebaseAuthServiceImpl implements FirebaseAuthService {
     }
   }
 
-  final PhoneVerificationFailed phoneVerificationFailed = (AuthException e) {};
-
-  final PhoneVerificationCompleted phoneVerificationCompleted = (AuthCredential authCredential) {};
-
-  final PhoneCodeSent codeSent = (String verificationId, [int forceResendingToken]) async {};
-
   @override
-  Future phoneAuth(String phone) async {
+  Future phoneAuth(
+      String phone,
+      PhoneVerificationCompleted completed,
+      PhoneVerificationFailed failed,
+      PhoneCodeSent codeSent,
+      Function(String verificationId) timeOut) async {
     try {
-      await FirebaseAuth.instance.verifyPhoneNumber(phoneNumber: phone,
+      await FirebaseAuth.instance.verifyPhoneNumber(
+          phoneNumber: phone,
           timeout: const Duration(seconds: 60),
-          verificationCompleted: phoneVerificationCompleted,
-          verificationFailed: phoneVerificationFailed,
+          verificationCompleted: completed,
+          verificationFailed: failed,
           codeSent: codeSent,
-          codeAutoRetrievalTimeout: (String verificationId) {});
+          codeAutoRetrievalTimeout: timeOut);
     } catch (e) {
       FirebaseErrorHandler.throwProperException(e);
     }

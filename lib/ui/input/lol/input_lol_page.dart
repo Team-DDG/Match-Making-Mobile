@@ -28,7 +28,6 @@ class InputLolPage extends StatelessWidget {
                     else if(e is Message)
                       context.showSnackbar(e.message)
                   }).whenComplete(() => Navigator.pushNamed(context, '/main'));
-                  //TODO: test if post is working
                 },
                   child: Text(
                     '다음',
