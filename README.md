@@ -1,4 +1,5 @@
-# 매치 메이킹
+# 매치 메이킹    ![Github Action](https://github.com/Team-DDG/Match-Making-Mobile/workflows/Dart%20CI/badge.svg)
+
 
 매치 메이킹은 소프트웨어 공학 실무에서 진행하는 프로젝트입니다.  
 나에게 딱 맞는 리그오브레전드 듀오를 찾아줍니다. 친구도 사귀고! 티어도 올리고!  
