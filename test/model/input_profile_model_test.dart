@@ -117,7 +117,7 @@ void main() {
 
   group('getLolBySummonerName', () {
     test('Success', () {
-      final request = {'summonerName': '나디코아니다'};
+      final request = '나디코아니다';
       final response = LolResponse();
       when(lolService.getLolBySummonerName(request))
           .thenAnswer((_) => Future.value(response));

@@ -74,7 +74,7 @@ class _InputLolBodyState extends State<InputLolBody> {
   _onClickSearchSummoner(BuildContext context, InputProfileModel model) async {
     final progressBar = await context.showAndGetProgressDialog('조회중입니다...');
     model
-        .getLolBySummonerName({'summonerName': _lolInputController.value.text})
+        .getLolBySummonerName(_lolInputController.text)
         .catchError((e) => {
               if (e is Navigate)
                 Navigator.pushReplacementNamed(context, e.route)

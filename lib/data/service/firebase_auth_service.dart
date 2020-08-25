@@ -5,6 +5,13 @@ abstract class FirebaseAuthService {
   Future signUp(String email, String password);
 
   Future login(String email, String password);
+
+  Future phoneAuth(
+      String phone,
+      Function completed,
+      Function failed,
+      Function codeSent,
+      Function(String verificationId) timeOut);
 }
 
 class FirebaseAuthServiceImpl implements FirebaseAuthService {
@@ -23,6 +30,26 @@ class FirebaseAuthServiceImpl implements FirebaseAuthService {
     try {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+    } catch (e) {
+      FirebaseErrorHandler.throwProperException(e);
+    }
+  }
+
+  @override
+  Future phoneAuth(
+      String phone,
+      Function completed,
+      Function failed,
+      Function codeSent,
+      Function(String verificationId) timeOut) async {
+    try {
+      await FirebaseAuth.instance.verifyPhoneNumber(
+          phoneNumber: phone,
+          timeout: const Duration(seconds: 60),
+          verificationCompleted: completed,
+          verificationFailed: failed,
+          codeSent: codeSent,
+          codeAutoRetrievalTimeout: timeOut);
     } catch (e) {
       FirebaseErrorHandler.throwProperException(e);
     }

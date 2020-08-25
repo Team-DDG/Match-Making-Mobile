@@ -47,6 +47,8 @@ class InputProfileModel extends BaseModel {
 
   LolResponse get lolResponse => _lolResponse;
 
+  String summonerName;
+
   Future getEmail() async {
     final user = await FirebaseAuth.instance.currentUser();
     _email = user.email;
@@ -86,6 +88,8 @@ class InputProfileModel extends BaseModel {
     notifyListeners();
   }
 
+
+
   Future postUserProfile() async {
     try {
       await _userService.postUserInformation({
@@ -103,14 +107,25 @@ class InputProfileModel extends BaseModel {
     }
   }
 
-  Future getLolBySummonerName(Map<String, String> queryBody) async {
+  Future getLolBySummonerName(String summonerName) async {
+    this.summonerName = summonerName;
     try {
-      _lolResponse = await _lolService.getLolBySummonerName(queryBody);
+      _lolResponse = await _lolService.getLolBySummonerName(summonerName);
       notifyListeners();
     } on UnauthorizedException {
       return Future.error(Navigate('/loginMethod'));
     } on NotFoundException {
       return Future.error(Message('없는 소환사명입니다.'));
+    }
+  }
+
+  Future postLolBySummonerName() async {
+    try {
+      await _lolService.postLolBySummonerName(summonerName);
+    } on UnauthorizedException {
+      return Future.error(Navigate('/loginMethod'));
+    } on ConflictException {
+      return Future.error(Message('이미 존재하는 소환사입니다.'));
     }
   }
 }
