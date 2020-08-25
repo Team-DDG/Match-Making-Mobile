@@ -42,16 +42,13 @@ class FirebaseAuthServiceImpl implements FirebaseAuthService {
       Function failed,
       Function codeSent,
       Function(String verificationId) timeOut) async {
-    final PhoneVerificationCompleted phoneVerificationCompleted = completed;
-    final PhoneVerificationFailed phoneVerificationFailed = failed;
-    final PhoneCodeSent phoneCodeSent = codeSent;
     try {
       await FirebaseAuth.instance.verifyPhoneNumber(
           phoneNumber: phone,
           timeout: const Duration(seconds: 60),
-          verificationCompleted: phoneVerificationCompleted,
-          verificationFailed: phoneVerificationFailed,
-          codeSent: phoneCodeSent,
+          verificationCompleted: completed,
+          verificationFailed: failed,
+          codeSent: codeSent,
           codeAutoRetrievalTimeout: timeOut);
     } catch (e) {
       FirebaseErrorHandler.throwProperException(e);
