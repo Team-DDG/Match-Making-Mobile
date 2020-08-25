@@ -8,9 +8,9 @@ abstract class FirebaseAuthService {
 
   Future phoneAuth(
       String phone,
-      PhoneVerificationCompleted completed,
-      PhoneVerificationFailed failed,
-      PhoneCodeSent codeSent,
+      Function completed,
+      Function failed,
+      Function codeSent,
       Function(String verificationId) timeOut);
 }
 
@@ -38,17 +38,20 @@ class FirebaseAuthServiceImpl implements FirebaseAuthService {
   @override
   Future phoneAuth(
       String phone,
-      PhoneVerificationCompleted completed,
-      PhoneVerificationFailed failed,
-      PhoneCodeSent codeSent,
+      Function completed,
+      Function failed,
+      Function codeSent,
       Function(String verificationId) timeOut) async {
+    final PhoneVerificationCompleted phoneVerificationCompleted = completed;
+    final PhoneVerificationFailed phoneVerificationFailed = failed;
+    final PhoneCodeSent phoneCodeSent = codeSent;
     try {
       await FirebaseAuth.instance.verifyPhoneNumber(
           phoneNumber: phone,
           timeout: const Duration(seconds: 60),
-          verificationCompleted: completed,
-          verificationFailed: failed,
-          codeSent: codeSent,
+          verificationCompleted: phoneVerificationCompleted,
+          verificationFailed: phoneVerificationFailed,
+          codeSent: phoneCodeSent,
           codeAutoRetrievalTimeout: timeOut);
     } catch (e) {
       FirebaseErrorHandler.throwProperException(e);

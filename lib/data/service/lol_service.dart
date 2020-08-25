@@ -7,14 +7,14 @@ import 'package:match_making/data/response/lol_response.dart';
 import 'package:match_making/data/service/network_config.dart';
 
 abstract class LolService {
-  Future<LolResponse> getLolBySummonerName(Map<String, String> queryBody);
-  Future postLolBySummonerName(Map<String, String> requestBody);
+  Future<LolResponse> getLolBySummonerName(String summonerName);
+  Future postLolBySummonerName(String summonerName);
 }
 
 class LolServiceImpl extends LolService {
   @override
-  Future<LolResponse> getLolBySummonerName(Map<String, String> queryBody) async {
-    var uri = Uri.https('match-making.jepanglee.page', '/lol', queryBody);
+  Future<LolResponse> getLolBySummonerName(String summonerName) async {
+    var uri = Uri.https('match-making.jepanglee.page', '/lol', {'summonerName': summonerName});
     final response = await http.get(uri);
 
     if (response.statusCode == 200) {
@@ -26,8 +26,8 @@ class LolServiceImpl extends LolService {
   }
 
   @override
-  Future postLolBySummonerName(Map<String, String> requestBody) async {
-    final response = await client.post('${BASE_URL}user/lol', body: requestBody);
+  Future postLolBySummonerName(String summonerName) async {
+    final response = await client.post('${BASE_URL}user/lol', body: {'summonerName': summonerName});
 
     if(response.statusCode == 200) {
       return;

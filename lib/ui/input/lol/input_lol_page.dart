@@ -21,14 +21,7 @@ class InputLolPage extends StatelessWidget {
                 Navigator.pushNamed(context, '/input/lol');
               },
               child: GestureDetector(
-                onTap: () {
-                  model.postLolBySummonerName().catchError((e) => {
-                    if(e is Navigate)
-                      Navigator.pushNamed(context, e.route)
-                    else if(e is Message)
-                      context.showSnackbar(e.message)
-                  }).whenComplete(() => Navigator.pushNamed(context, '/main'));
-                },
+                onTap: _onClickSendInfo(context, model),
                   child: Text(
                     '다음',
                     style: TextStyle(
@@ -43,5 +36,14 @@ class InputLolPage extends StatelessWidget {
       ],
     ),
         body: InputLolBody());
+  }
+
+  _onClickSendInfo(BuildContext context, InputProfileModel model) {
+    model.postLolBySummonerName().catchError((e) => {
+      if(e is Navigate)
+        Navigator.pushNamed(context, e.route)
+      else if(e is Message)
+        context.showSnackbar(e.message)
+    }).whenComplete(() => Navigator.pushNamed(context, '/main'));
   }
 }

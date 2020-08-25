@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
-import 'package:match_making/data/error/exception/already_exist_exception.dart';
 import 'package:match_making/data/error/exception/conflict_exception.dart';
 import 'package:match_making/data/error/exception/not_found_exception.dart';
 import 'package:match_making/data/error/exception/unauthorized_exception.dart';
@@ -48,9 +47,7 @@ class InputProfileModel extends BaseModel {
 
   LolResponse get lolResponse => _lolResponse;
 
-  String _summonerName;
-
-  String get summonerName => _summonerName;
+  String summonerName;
 
   Future getEmail() async {
     final user = await FirebaseAuth.instance.currentUser();
@@ -91,6 +88,8 @@ class InputProfileModel extends BaseModel {
     notifyListeners();
   }
 
+
+
   Future postUserProfile() async {
     try {
       await _userService.postUserInformation({
@@ -108,11 +107,10 @@ class InputProfileModel extends BaseModel {
     }
   }
 
-  Future getLolBySummonerName() async {
+  Future getLolBySummonerName(String summonerName) async {
+    this.summonerName = summonerName;
     try {
-      _lolResponse = await _lolService.getLolBySummonerName({
-        'summonerName': summonerName
-      });
+      _lolResponse = await _lolService.getLolBySummonerName(summonerName);
       notifyListeners();
     } on UnauthorizedException {
       return Future.error(Navigate('/loginMethod'));
@@ -123,12 +121,10 @@ class InputProfileModel extends BaseModel {
 
   Future postLolBySummonerName() async {
     try {
-      await _lolService.postLolBySummonerName({
-        'summonerName': summonerName
-      });
+      await _lolService.postLolBySummonerName(summonerName);
     } on UnauthorizedException {
       return Future.error(Navigate('/loginMethod'));
-    } on AlreadyExistException {
+    } on ConflictException {
       return Future.error(Message('이미 존재하는 소환사입니다.'));
     }
   }
