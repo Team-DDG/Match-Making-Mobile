@@ -27,7 +27,7 @@ void main() {
   FlutterError.onError = Crashlytics.instance.recordFlutterError;
 
   runZoned(() {
-    runApp(MatchMakingApp());
+     runApp(MatchMakingApp());
   }, onError: Crashlytics.instance.recordError);
 }
 
