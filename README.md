@@ -171,6 +171,9 @@ context
 
   * [Mockito](https://pub.dev/packages/mockito)
 
+* Analytics
+  * [firebase_crashlytics](https://pub.dev/packages/firebase_crashlytics)
+
 * Util
   * [validators](https://pub.dev/packages/validators)
   * [firebase_remote_config](https://pub.dev/packages/firebase_remote_config)

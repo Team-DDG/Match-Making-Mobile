@@ -1,3 +1,4 @@
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:match_making/data/error/handling_method_type.dart';
@@ -34,7 +35,10 @@ class _InputLolBodyState extends State<InputLolBody> {
                 decoration: InputDecoration(
                     hintText: '소환사명을 입력하세요',
                     suffixIcon: IconButton(
-                      onPressed: _onClickSearchSummoner(context, model),
+                      onPressed: () {
+                        Crashlytics.instance.crash();
+                        _onClickSearchSummoner(context, model);
+                      },
                       icon: Icon(Icons.send),
                     )),
               ),
@@ -71,7 +75,8 @@ class _InputLolBodyState extends State<InputLolBody> {
     }
   }
 
-  _onClickSearchSummoner(BuildContext context, InputProfileModel model) async {
+  void _onClickSearchSummoner(
+      BuildContext context, InputProfileModel model) async {
     final progressBar = await context.showAndGetProgressDialog('조회중입니다...');
     model
         .getLolBySummonerName({'summonerName': _lolInputController.value.text})
