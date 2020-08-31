@@ -8,7 +8,7 @@ abstract class PhoneAuthService {
 class PhoneAuthServiceImpl extends PhoneAuthService {
   @override
   Future verifyPhone(String phone, String code) async {
-    var uri = Uri.https('us-central1-match-making-2b163.cloudfunctions.net/authPhone', '/authPhone', {'code': code});
+    var uri = Uri.https('us-central1-match-making-2b163.cloudfunctions.net', '/authPhone', {'code': code});
     final response = await http.get(uri);
 
     if(response.statusCode == 200) {
