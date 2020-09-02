@@ -73,17 +73,20 @@ class _SelfCertificationBodyState extends State<SelfCertificationBody> {
           CommonButton(
             text: '인증',
             onPressed: () {
-              context
-                  .read<SelfCertificationModel>()
-                  .verifyPhone(
-                      _phoneNumberController.text, _authCodeController.text)
-                  .then((value) => Navigator.pushReplacementNamed(
-                      context, '/input/information'))
-                  .catchError((e) => {context.showSnackbar(e)});
+              _onClickCertificate();
             },
           ),
         ],
       ),
     );
+  }
+
+  _onClickCertificate() {
+    context
+        .read<SelfCertificationModel>()
+        .verifyPhone(_phoneNumberController.text, _authCodeController.text)
+        .then((value) =>
+            Navigator.pushReplacementNamed(context, '/input/information'))
+        .catchError((e) => {context.showSnackbar(e)});
   }
 }
