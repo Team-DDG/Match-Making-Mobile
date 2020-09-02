@@ -14,7 +14,7 @@ import 'package:match_making/ui/page/find_password_page.dart';
 import 'package:match_making/ui/page/leave_page.dart';
 import 'package:match_making/ui/page/main_page.dart';
 import 'package:match_making/ui/page/report_page.dart';
-import 'package:match_making/ui/page/self_certification_page.dart';
+import 'package:match_making/ui/self_certification/self_certification_page.dart';
 import 'package:match_making/ui/sign_up/sign_up_page.dart';
 import 'package:provider/provider.dart';
 
@@ -34,7 +34,7 @@ class MatchMakingApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/input/lol',
+        initialRoute: '/signup/certification',
         routes: {
           '/login/method': (_) => LoginMethodPage(),
           '/login/email': (_) => EmailLoginPage(),

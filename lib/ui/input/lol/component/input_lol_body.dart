@@ -34,7 +34,7 @@ class _InputLolBodyState extends State<InputLolBody> {
                 decoration: InputDecoration(
                     hintText: '소환사명을 입력하세요',
                     suffixIcon: IconButton(
-                      onPressed: _onClickSearchSummoner(context, model),
+                      onPressed: () => _onClickSearchSummoner(context, model),
                       icon: Icon(Icons.send),
                     )),
               ),

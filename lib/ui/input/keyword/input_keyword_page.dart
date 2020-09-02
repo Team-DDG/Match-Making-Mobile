@@ -15,7 +15,7 @@ class InputKeywordPage extends StatelessWidget {
         text: '정보 등록',
         actionWidgets: [
           GestureDetector(
-            onTap: _onClickPostUserProfile(context),
+            onTap: () => _onClickPostUserProfile(context),
             child: Container(
               alignment: Alignment.center,
               padding: EdgeInsets.only(right: 24),
