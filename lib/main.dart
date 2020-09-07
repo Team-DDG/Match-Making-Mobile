@@ -34,7 +34,7 @@ class MatchMakingApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/signup/certification',
+        initialRoute: '/main',
         routes: {
           '/login/method': (_) => LoginMethodPage(),
           '/login/email': (_) => EmailLoginPage(),
@@ -56,6 +56,7 @@ class MatchMakingApp extends StatelessWidget {
           scaffoldBackgroundColor: colorBackground,
           fontFamily: 'RIXGOB',
           hintColor: Colors.grey,
+          canvasColor: Color(0xFF000000)
         ),
       ),
     );
