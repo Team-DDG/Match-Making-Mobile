@@ -34,7 +34,7 @@ class MatchMakingApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/main',
+        initialRoute: '/input/lol',
         routes: {
           '/login/method': (_) => LoginMethodPage(),
           '/login/email': (_) => EmailLoginPage(),

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:match_making/data/client.dart';
@@ -27,9 +28,11 @@ class LolServiceImpl extends LolService {
 
   @override
   Future postLolBySummonerName(String summonerName) async {
-    final response = await client.post('${BASE_URL}user/lol', body: {'summonerName': summonerName});
+    final response = await client.patch('${BASE_URL}user/lol', body: {'summonerName': summonerName});
+    log('response code: ${response.statusCode}');
 
     if(response.statusCode == 200) {
+      log('postlolBySummonerName 200');
       return;
     }
 

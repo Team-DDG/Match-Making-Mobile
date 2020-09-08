@@ -123,7 +123,7 @@ class InputProfileModel extends BaseModel {
     try {
       await _lolService.postLolBySummonerName(summonerName);
     } on UnauthorizedException {
-      return Future.error(Navigate('/loginMethod'));
+      return Future.error(Navigate('/login/method'));
     } on ConflictException {
       return Future.error(Message('이미 존재하는 소환사입니다.'));
     }
