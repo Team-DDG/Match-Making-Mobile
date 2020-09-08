@@ -9,7 +9,7 @@ import 'package:match_making/data/service/network_config.dart';
 
 abstract class LolService {
   Future<LolResponse> getLolBySummonerName(String summonerName);
-  Future postLolBySummonerName(String summonerName);
+  Future patchLolBySummonerName(String summonerName);
 }
 
 class LolServiceImpl extends LolService {
@@ -27,12 +27,11 @@ class LolServiceImpl extends LolService {
   }
 
   @override
-  Future postLolBySummonerName(String summonerName) async {
+  Future patchLolBySummonerName(String summonerName) async {
     final response = await client.patch('${BASE_URL}user/lol', body: {'summonerName': summonerName});
     log('response code: ${response.statusCode}');
 
     if(response.statusCode == 200) {
-      log('postlolBySummonerName 200');
       return;
     }
 

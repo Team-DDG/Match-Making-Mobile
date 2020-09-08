@@ -121,7 +121,7 @@ class InputProfileModel extends BaseModel {
 
   Future postLolBySummonerName() async {
     try {
-      await _lolService.postLolBySummonerName(summonerName);
+      await _lolService.patchLolBySummonerName(summonerName);
     } on UnauthorizedException {
       return Future.error(Navigate('/login/method'));
     } on ConflictException {

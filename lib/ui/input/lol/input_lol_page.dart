@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:match_making/data/error/handling_method_type.dart';
@@ -12,38 +14,39 @@ class InputLolPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = context.watch<InputProfileModel>();
-    return Scaffold(appBar: CommonAppBar(
-      text: '정보 등록',
-      actionWidgets: <Widget>[
-        Center(
-          child: GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, '/input/lol');
-              },
+    return Scaffold(
+        appBar: CommonAppBar(
+          text: '정보 등록',
+          actionWidgets: <Widget>[
+            Center(
               child: GestureDetector(
-                onTap: _onClickSendInfo(context, model),
-                  child: Text(
-                    '다음',
-                    style: TextStyle(
-                      color: colorLol,
-                      fontSize: 18,
-                    ),
+                onTap: () => _onClickSendInfo(context, model),
+                child: Text(
+                  '다음',
+                  style: TextStyle(
+                    color: colorLol,
+                    fontSize: 18,
                   ),
-              )
-          ),
+                ),
+              ),
+            ),
+            SizedBox(width: 24)
+          ],
         ),
-        SizedBox(width: 24)
-      ],
-    ),
         body: InputLolBody());
   }
 
   _onClickSendInfo(BuildContext context, InputProfileModel model) {
-    model.postLolBySummonerName().catchError((e) => {
-      if(e is Navigate)
-        Navigator.pushNamed(context, e.route)
-      else if(e is Message)
-        context.showSnackbar(e.message)
-    }).whenComplete(() => Navigator.pushNamed(context, '/main'));
+    model
+        .postLolBySummonerName()
+        .catchError((e) => {
+              if (e is Navigate)
+                Navigator.pushNamed(context, e.route)
+              else if (e is Message)
+                context.showSnackbar(e.message)
+              else
+                log('error type: ${e.toString()}')
+            })
+        .whenComplete(() => Navigator.pushNamed(context, '/main'));
   }
 }
