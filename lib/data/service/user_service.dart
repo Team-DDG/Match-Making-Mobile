@@ -34,5 +34,6 @@ class UserServiceImpl implements UserService {
     }
 
     NetworkErrorHandler.throwProperException(response);
+    return null;
   }
 }
