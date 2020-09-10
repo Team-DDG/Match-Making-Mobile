@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:match_making/data/client.dart';
@@ -28,20 +27,13 @@ class LolServiceImpl extends LolService {
 
   @override
   Future<void> patchLolBySummonerName(String summonerName) async {
-    try{
-      final response = await client.patch('${BASE_URL}user/lol', body: {'summonerName': summonerName});
+      final response = await clientWithoutRetry.patch('${BASE_URL}user/lol', body: {'summonerName': summonerName});
 
-      log('response code: ${response.statusCode}');
-
-      if(response.statusCode == 200) {
+      if (response.statusCode == 200) {
         return;
       }
 
       NetworkErrorHandler.throwProperException(response);
       return null;
-    } catch(e) {
-      log('network error: ${e.toString()}');
-      throw e;
-    }
   }
 }

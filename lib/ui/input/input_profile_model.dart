@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
 import 'package:match_making/data/error/exception/conflict_exception.dart';
@@ -128,8 +126,6 @@ class InputProfileModel extends BaseModel {
       return Future.error(Navigate('/login/method'));
     } on ConflictException {
       return Future.error(Message('이미 존재하는 소환사입니다.'));
-    } catch(e) {
-      log('post lol error: ${e.toString()}');
     }
   }
 }

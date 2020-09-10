@@ -39,6 +39,7 @@ class InputLolPage extends StatelessWidget {
   _onClickSendInfo(BuildContext context, InputProfileModel model) {
     model
         .postLolBySummonerName()
+        .then((value) => Navigator.pushNamed(context, '/main'))
         .catchError((e) => {
               if (e is Navigate)
                 Navigator.pushNamed(context, e.route)
@@ -46,7 +47,6 @@ class InputLolPage extends StatelessWidget {
                 context.showSnackbar(e.message)
               else
                 log('error type: ${e.toString()}')
-            })
-        .whenComplete(() => Navigator.pushNamed(context, '/main'));
+            });
   }
 }
