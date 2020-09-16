@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:match_making/data/error/handling_method_type.dart';
@@ -45,8 +43,6 @@ class InputLolPage extends StatelessWidget {
                 Navigator.pushNamed(context, e.route)
               else if (e is Message)
                 context.showSnackbar(e.message)
-              else
-                log('error type: ${e.toString()}')
             });
   }
 }

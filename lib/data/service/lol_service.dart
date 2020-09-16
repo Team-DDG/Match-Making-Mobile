@@ -27,13 +27,13 @@ class LolServiceImpl extends LolService {
 
   @override
   Future<void> patchLolBySummonerName(String summonerName) async {
-      final response = await clientWithoutRetry.patch('${BASE_URL}user/lol', body: {'summonerName': summonerName});
+    final response = await client.patch('${BASE_URL}user/lol', body: {'summonerName': summonerName});
 
-      if (response.statusCode == 200) {
-        return;
-      }
+    if (response.statusCode == 200) {
+      return;
+    }
 
-      NetworkErrorHandler.throwProperException(response);
-      return null;
+    NetworkErrorHandler.throwProperException(response);
+    return null;
   }
 }

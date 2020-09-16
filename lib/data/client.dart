@@ -7,6 +7,3 @@ import 'package:match_making/data/token_retry_policy.dart';
 Client client = HttpClientWithInterceptor.build(
     interceptors: [TokenInterceptor(PrefStorageImpl())],
     retryPolicy: TokenRetryPolicy(PrefStorageImpl()));
-
-Client clientWithoutRetry = HttpClientWithInterceptor.build(
-    interceptors: [TokenInterceptor(PrefStorageImpl())]);
