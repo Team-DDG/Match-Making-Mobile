@@ -28,6 +28,7 @@ class LolServiceImpl extends LolService {
   @override
   Future<void> patchLolBySummonerName(String summonerName) async {
     final response = await client.patch('${BASE_URL}user/lol', body: {'summonerName': summonerName});
+    //TODO use adMob
 
     if (response.statusCode == 200) {
       return;
