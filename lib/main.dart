@@ -56,7 +56,7 @@ class MatchMakingApp extends StatelessWidget {
           scaffoldBackgroundColor: colorBackground,
           fontFamily: 'RIXGOB',
           hintColor: Colors.grey,
-          canvasColor: Color(0xFF000000)
+          canvasColor: Colors.black
         ),
       ),
     );
