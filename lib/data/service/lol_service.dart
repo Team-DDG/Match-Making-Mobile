@@ -8,7 +8,7 @@ import 'package:match_making/data/service/network_config.dart';
 
 abstract class LolService {
   Future<LolResponse> getLolBySummonerName(String summonerName);
-  Future postLolBySummonerName(String summonerName);
+  Future patchLolBySummonerName(String summonerName);
 }
 
 class LolServiceImpl extends LolService {
@@ -26,13 +26,15 @@ class LolServiceImpl extends LolService {
   }
 
   @override
-  Future postLolBySummonerName(String summonerName) async {
-    final response = await client.post('${BASE_URL}user/lol', body: {'summonerName': summonerName});
+  Future<void> patchLolBySummonerName(String summonerName) async {
+    final response = await client.patch('${BASE_URL}user/lol', body: {'summonerName': summonerName});
+    //TODO use adMob
 
-    if(response.statusCode == 200) {
+    if (response.statusCode == 200) {
       return;
     }
 
     NetworkErrorHandler.throwProperException(response);
+    return null;
   }
 }

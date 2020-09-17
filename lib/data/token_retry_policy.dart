@@ -21,8 +21,10 @@ class TokenRetryPolicy implements RetryPolicy {
   Future<bool> shouldAttemptRetryOnResponse(ResponseData response) async {
     if (response.statusCode == HttpStatus.unauthorized) {
       final user = await FirebaseAuth.instance.currentUser();
-      final token = await user.getIdToken(refresh: true);
-      await _prefStorage.setAccessToken(token.token);
+      if (user != null) {
+        final token = await user.getIdToken(refresh: true);
+        await _prefStorage.setAccessToken(token.token);
+      }
       return true;
     }
 
