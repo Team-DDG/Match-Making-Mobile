@@ -15,6 +15,7 @@ dependencies:
   autocomplete_textfield: ^1.7.3
   progress_dialog: ^1.2.4
   fluttertoast: ^7.0.1
+  flutter_native_admob: ^2.1.0
 
   # Auth
   firebase_auth: ^0.16.1
